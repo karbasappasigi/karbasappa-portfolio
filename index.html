@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karbasappa - Computer Science & Network Engineering Portfolio. CCNA certified specialist in network design, routing protocols, VoIP, cloud networking, and IoT.">
+  <meta name="keywords" content="Karbasappa, Network Engineer, CCNA, Cisco Packet Tracer, VoIP, OSPF, RIP, BGP, Cloud Networking, IoT, Portfolio, Bengaluru">
+  <meta name="author" content="Karbasappa">
+  
+  <title>Karbasappa | Network Engineer & Computer Science</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Real-time Animated Network Canvas Background -->
+  <canvas id="network-canvas" aria-hidden="true"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Header & Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Karbasappa Portfolio Home">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">KB</span>
+        <span class="logo-bracket">/&gt;</span>
+        <span class="logo-sub">net_eng</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link"><i class="fa-solid fa-user-astronaut"></i> About</a></li>
+          <li><a href="#skills" class="nav-link"><i class="fa-solid fa-network-wired"></i> Skills</a></li>
+          <li><a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+          <li><a href="#certifications" class="nav-link"><i class="fa-solid fa-certificate"></i> Certs</a></li>
+          <li><a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+          <li><a href="#terminal-section" class="nav-link"><i class="fa-solid fa-terminal"></i> Terminal</a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Controls (Theme Toggle & Mobile Menu) -->
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Color Theme" title="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="#contact" class="btn btn-sm btn-primary nav-cta">
+          <span>Hire Me</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </a>
+        <button id="mobile-toggle" class="btn-icon mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- Status Badge -->
+          <div class="status-badge">
+            <span class="status-pulse"></span>
+            <span class="status-text">Available for Internships & Opportunities</span>
+            <span class="status-ping">0.4ms ping</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Karbasappa</span>
+          </h1>
+
+          <div class="hero-dynamic-role">
+            <span class="role-prefix">I architect & build:</span>
+            <span class="dynamic-text" id="typewriter-text"></span>
+            <span class="cursor-blink">|</span>
+          </div>
+
+          <p class="hero-description">
+            Computer Science & Network Engineering student at <strong>Presidency University, Bengaluru</strong>. CCNA certified specialist passionate about designing scalable routing topologies, VoIP telecommunications, cloud networks, and real-time IoT systems.
+          </p>
+
+          <!-- Key Metrics Badges -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-val">99.2%</span>
+              <span class="metric-lbl">VoIP Uptime</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-val">500+</span>
+              <span class="metric-lbl">Campus Devices</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-val">300+</span>
+              <span class="metric-lbl">Google Cloud Badges</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-val">CCNA</span>
+              <span class="metric-lbl">Certified 200-301</span>
+            </div>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-diagram-project"></i>
+              <span>View Topologies & Projects</span>
+            </a>
+            <button class="btn btn-secondary" id="btn-open-terminal">
+              <i class="fa-solid fa-terminal"></i>
+              <span>Launch Terminal CLI</span>
+            </button>
+            <button class="btn btn-outline" id="btn-open-resume">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>View Resume</span>
+            </button>
+          </div>
+
+          <!-- Social Quick Links -->
+          <div class="hero-socials">
+            <span class="social-label">Connect:</span>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.credly.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Credly Badges">
+              <i class="fa-solid fa-award"></i>
+            </a>
+            <button class="social-link" id="quick-copy-email" title="Copy Email Address">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Network Widget / Telemetry Card -->
+        <div class="hero-widget">
+          <div class="telemetry-card">
+            <div class="card-header-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="card-title-tab">
+                <i class="fa-solid fa-server"></i>
+                <span>router01.blr.net (Cisco IOS)</span>
+              </div>
+              <span class="live-indicator"><span class="blink-dot"></span> LIVE</span>
+            </div>
+
+            <div class="telemetry-body">
+              <div class="console-line text-muted"># ping -c 4 10.0.0.1 -s 64</div>
+              <div class="console-line text-cyan">PING gateway.presidency.edu (10.0.0.1): 56 data bytes</div>
+              <div class="console-line text-green"><i class="fa-solid fa-check"></i> 64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=0.812 ms</div>
+              <div class="console-line text-green"><i class="fa-solid fa-check"></i> 64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=0.745 ms</div>
+              <div class="console-line text-green"><i class="fa-solid fa-check"></i> 64 bytes from 10.0.0.1: icmp_seq=3 ttl=64 time=0.698 ms</div>
+              <div class="console-line text-green"><i class="fa-solid fa-check"></i> 64 bytes from 10.0.0.1: icmp_seq=4 ttl=64 time=0.710 ms</div>
+              
+              <div class="console-stats">
+                <div class="stat-pill">
+                  <span class="stat-label">PACKET LOSS</span>
+                  <span class="stat-value text-emerald">0.0%</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">AVG RTT</span>
+                  <span class="stat-value text-cyan">0.741 ms</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">ROUTING</span>
+                  <span class="stat-value text-purple">OSPF / RIP</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">INTERFACES</span>
+                  <span class="stat-value text-amber">Gig0/0/0 UP</span>
+                </div>
+              </div>
+
+              <!-- Quick Mini Topology Visualizer -->
+              <div class="mini-topology">
+                <div class="topo-node topo-core" title="Core Gateway Router">
+                  <i class="fa-solid fa-server"></i>
+                  <span>Core R1</span>
+                </div>
+                <div class="topo-line active-line"></div>
+                <div class="topo-node topo-switch" title="Distribution Switch">
+                  <i class="fa-solid fa-diagram-next"></i>
+                  <span>SW-Dist</span>
+                </div>
+                <div class="topo-line active-line"></div>
+                <div class="topo-node topo-endpoint" title="VoIP & Host Endpoints">
+                  <i class="fa-solid fa-phone-volume"></i>
+                  <span>VoIP & Hosts</span>
+                </div>
+              </div>
+
+              <div class="console-footer">
+                <span class="text-muted"><i class="fa-solid fa-location-dot"></i> Bengaluru, India</span>
+                <span class="text-cyan"><i class="fa-solid fa-shield-halved"></i> CCNA Certified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About & Education Section -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-user-gear"></i> System Profile</span>
+          <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+          <p class="section-subtitle">Dedicated network and software engineer with a track record of building resilient infrastructures and intelligent software systems.</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left Column: Bio Card -->
+          <div class="about-card bio-card">
+            <div class="card-icon-wrapper">
+              <i class="fa-solid fa-fingerprint"></i>
+            </div>
+            <h3>Engineering Philosophy</h3>
+            <p>
+              I am a results-driven <strong>Computer Science & Networks</strong> engineering student at Presidency University, Bengaluru. My passion lies at the intersection of robust network infrastructure, dynamic routing protocols, cloud architecture, and embedded IoT systems.
+            </p>
+            <p>
+              Having achieved the <strong>CCNA 200-301 (Network Fundamentals)</strong> and <strong>Cisco Packet Tracer Advanced Certification</strong>, I specialize in designing fault-tolerant multi-building topologies, configuring VLANs, subnets, and voice-over-IP systems, while troubleshooting complex network bottlenecks.
+            </p>
+
+            <div class="bio-highlights">
+              <div class="highlight-chip">
+                <i class="fa-solid fa-route"></i>
+                <span>Dynamic Routing (OSPF/RIP/BGP)</span>
+              </div>
+              <div class="highlight-chip">
+                <i class="fa-solid fa-network-wired"></i>
+                <span>Cisco Packet Tracer Topology Design</span>
+              </div>
+              <div class="highlight-chip">
+                <i class="fa-solid fa-cloud"></i>
+                <span>GCP Cloud Networking & Security</span>
+              </div>
+              <div class="highlight-chip">
+                <i class="fa-solid fa-microchip"></i>
+                <span>Raspberry Pi & IoT Telemetry</span>
+              </div>
+            </div>
+
+            <!-- Languages Spoken -->
+            <div class="languages-box">
+              <span class="box-label"><i class="fa-solid fa-language"></i> Spoken Languages:</span>
+              <div class="lang-tags">
+                <span class="lang-tag">English (Professional)</span>
+                <span class="lang-tag">Kannada (Native)</span>
+                <span class="lang-tag">Hindi (Fluent)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Academic Milestones & Fast Facts -->
+          <div class="about-sidebar">
+            <!-- Education Cards -->
+            <div class="about-card edu-card">
+              <div class="card-icon-wrapper">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <h3>Academic Background</h3>
+              
+              <div class="timeline-compact">
+                <!-- Presidency University -->
+                <div class="timeline-entry">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-period">Expected Graduation: June 2027</span>
+                    <h4>Bachelor of Engineering, Computer Science (Networks)</h4>
+                    <p class="timeline-inst"><i class="fa-solid fa-building-columns"></i> Presidency University, Bengaluru</p>
+                    <p class="timeline-note">Focus: Computer Networks, Network Security, Routing & Switching Protocols, Operating Systems, IoT, Cloud Computing.</p>
+                  </div>
+                </div>
+
+                <!-- Pre-University -->
+                <div class="timeline-entry">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-period">2021 – 2023</span>
+                    <h4>Pre-University (PUC I & II)</h4>
+                    <p class="timeline-inst"><i class="fa-solid fa-school"></i> Diamond PU College, Basavakalyan</p>
+                    <p class="timeline-note">Strong foundations in Mathematics, Physics, and Computer Science fundamentals.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Core Competencies Badges -->
+            <div class="about-card competencies-card">
+              <h3><i class="fa-solid fa-bullseye"></i> Core Competencies</h3>
+              <div class="competency-grid">
+                <div class="comp-badge"><i class="fa-solid fa-network-wired"></i> Network Design & Architecture</div>
+                <div class="comp-badge"><i class="fa-solid fa-wrench"></i> Troubleshooting & Diagnostics</div>
+                <div class="comp-badge"><i class="fa-solid fa-lightbulb"></i> Problem Solving & Analytics</div>
+                <div class="comp-badge"><i class="fa-solid fa-users"></i> Team Collaboration</div>
+                <div class="comp-badge"><i class="fa-solid fa-list-check"></i> Project Management</div>
+                <div class="comp-badge"><i class="fa-solid fa-bolt"></i> Quick Learner & Adaptability</div>
+                <div class="comp-badge"><i class="fa-solid fa-cloud"></i> Cloud Infrastructure</div>
+                <div class="comp-badge"><i class="fa-solid fa-clock"></i> Time Management</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Matrix Section -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-microchip"></i> Stack & Tooling</span>
+          <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+          <p class="section-subtitle">A comprehensive breakdown of network protocols, cloud infrastructure, hardware, and programming toolkits.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs" role="tablist" aria-label="Skills Category Filter">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Skills</button>
+          <button class="filter-btn" data-filter="networking" role="tab" aria-selected="false">Networking & Protocols</button>
+          <button class="filter-btn" data-filter="cloud" role="tab" aria-selected="false">Cloud & Infrastructure</button>
+          <button class="filter-btn" data-filter="tools" role="tab" aria-selected="false">Tools & Hardware</button>
+          <button class="filter-btn" data-filter="programming" role="tab" aria-selected="false">Languages & Scripting</button>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-grid" id="skills-grid">
+          <!-- Networking Category -->
+          <div class="skill-card" data-category="networking">
+            <div class="skill-icon"><i class="fa-solid fa-sitemap"></i></div>
+            <div class="skill-info">
+              <h4>TCP/IP & OSI Model</h4>
+              <p>7-layer architecture, packet encapsulation, protocol analysis</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="networking">
+            <div class="skill-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <div class="skill-info">
+              <h4>IPv4 / IPv6 & Subnetting</h4>
+              <p>CIDR notation, VLSM calculation, address space allocation</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="networking">
+            <div class="skill-icon"><i class="fa-solid fa-route"></i></div>
+            <div class="skill-info">
+              <h4>Routing Protocols (RIP, OSPF, BGP)</h4>
+              <p>Distance-vector & link-state routing, path calculation, failover</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="networking">
+            <div class="skill-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="skill-info">
+              <h4>VLANs & STP</h4>
+              <p>Inter-VLAN routing (Router-on-a-stick), 802.1Q trunking, Spanning Tree</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="networking">
+            <div class="skill-icon"><i class="fa-solid fa-phone-volume"></i></div>
+            <div class="skill-info">
+              <h4>VoIP & Telephony</h4>
+              <p>Cisco Call Manager, SIP/RTP protocols, Voice VLAN, QoS</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="networking">
+            <div class="skill-icon"><i class="fa-solid fa-stethoscope"></i></div>
+            <div class="skill-info">
+              <h4>Network Troubleshooting</h4>
+              <p>Ping, traceroute, packet inspection, latency & jitter resolution</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+            </div>
+          </div>
+
+          <!-- Tools & Platforms Category -->
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon"><i class="fa-solid fa-desktop"></i></div>
+            <div class="skill-info">
+              <h4>Cisco Packet Tracer (Advanced)</h4>
+              <p>Complex network simulations, router/switch CLI configurations</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 96%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon"><i class="fa-brands fa-linux"></i></div>
+            <div class="skill-info">
+              <h4>Linux & System Administration</h4>
+              <p>Terminal navigation, network configuration, cron jobs, systemd</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon"><i class="fa-solid fa-shield-virus"></i></div>
+            <div class="skill-info">
+              <h4>Wireshark Packet Analysis</h4>
+              <p>Deep packet inspection, protocol dissecting, packet flow capture</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="tools">
+            <div class="skill-icon"><i class="fa-brands fa-raspberry-pi"></i></div>
+            <div class="skill-info">
+              <h4>Raspberry Pi & Embedded IoT</h4>
+              <p>GPIO interfacing, sensor integration, telemetry streaming</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+            </div>
+          </div>
+
+          <!-- Cloud & Infrastructure Category -->
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon"><i class="fa-brands fa-google"></i></div>
+            <div class="skill-info">
+              <h4>Google Cloud Platform (GCP)</h4>
+              <p>Compute Engine, VPC networks, subnets, IAM, 300+ badges</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon"><i class="fa-solid fa-cloud"></i></div>
+            <div class="skill-info">
+              <h4>VPC & Cloud Networking</h4>
+              <p>Virtual Private Cloud peering, routing tables, NAT gateways</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="skill-info">
+              <h4>Firewall Policies & Security</h4>
+              <p>Ingress/egress filtering, access control lists (ACLs), security baselines</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+            </div>
+          </div>
+
+          <!-- Programming & Scripting Category -->
+          <div class="skill-card" data-category="programming">
+            <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+            <div class="skill-info">
+              <h4>Python</h4>
+              <p>Network automation scripts, NLP, socket programming, data analysis</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="programming">
+            <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="skill-info">
+              <h4>C++</h4>
+              <p>Object-oriented programming, data structures, algorithm efficiency</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 82%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="programming">
+            <div class="skill-icon"><i class="fa-solid fa-terminal"></i></div>
+            <div class="skill-info">
+              <h4>Bash Scripting</h4>
+              <p>Automation workflows, system diagnostics, cron task scheduling</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-category="programming">
+            <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+            <div class="skill-info">
+              <h4>HTML, CSS & JavaScript</h4>
+              <p>Responsive web interfaces, telemetry dashboards, interactive UI</p>
+              <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects & Topologies Section -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-diagram-project"></i> Architectures & Deployments</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+          <p class="section-subtitle">Real-world network architectures, IoT telemetry prototypes, and machine learning solutions.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: VoIP Network Implementation -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-badge"><i class="fa-solid fa-phone-volume"></i> Telephony Architecture</div>
+              <span class="project-metric"><i class="fa-solid fa-bolt"></i> 99.2% Uptime</span>
+            </div>
+            
+            <h3 class="project-title">VoIP Network Implementation</h3>
+            <p class="project-summary">Cisco Packet Tracer Enterprise Voice Solution</p>
+            
+            <p class="project-desc">
+              Designed and deployed a fully functional Voice-over-IP (VoIP) network topology supporting 20+ IP phones across multiple corporate departments. Configured routers, multi-layer switches, voice VLANs, and integrated Cisco Call Manager services.
+            </p>
+
+            <div class="project-highlights">
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> 20+ IP phones with dial-peer provisioning</div>
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> Voice & Data VLAN segregation (802.1Q)</div>
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> Call Manager Express (CME) configuration</div>
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> QoS prioritized for voice packets, eliminating jitter</div>
+            </div>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Cisco Packet Tracer</span>
+              <span class="tech-tag">VoIP</span>
+              <span class="tech-tag">VLAN Trunking</span>
+              <span class="tech-tag">QoS</span>
+              <span class="tech-tag">DHCP Option 150</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn btn-sm btn-primary" onclick="openTopologyModal('voip')">
+                <i class="fa-solid fa-sitemap"></i> Inspect Topology
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 2: Campus Network Design -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-badge"><i class="fa-solid fa-building-user"></i> Infrastructure</div>
+              <span class="project-metric"><i class="fa-solid fa-chart-line"></i> 98.5% Delivery</span>
+            </div>
+            
+            <h3 class="project-title">Campus Network Design</h3>
+            <p class="project-summary">Multi-Building Infrastructure with Redundancy</p>
+            
+            <p class="project-desc">
+              Architected a campus-wide multi-building network supporting 500+ host devices across 3 primary academic facilities. Engineered dynamic routing protocols with automatic link failover, high availability, and localized network services.
+            </p>
+
+            <div class="project-highlights">
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> Supports 500+ endpoints with subnets (VLSM)</div>
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> Dynamic routing utilizing RIP & OSPF protocol convergence</div>
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> Redundant core-to-distribution links with STP prevention</div>
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> Centralized HTTP, DNS, and DHCP services</div>
+            </div>
+
+            <div class="tech-tags">
+              <span class="tech-tag">OSPF / RIP</span>
+              <span class="tech-tag">IPv4 Subnetting</span>
+              <span class="tech-tag">Redundancy & Failover</span>
+              <span class="tech-tag">DNS/DHCP</span>
+              <span class="tech-tag">Network Design</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn btn-sm btn-primary" onclick="openTopologyModal('campus')">
+                <i class="fa-solid fa-sitemap"></i> Inspect Topology
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 3: Underwater Marine Life Tracking System -->
+          <div class="project-card featured-iot">
+            <div class="project-header">
+              <div class="project-badge"><i class="fa-solid fa-water"></i> IoT & Telemetry</div>
+              <span class="project-metric"><i class="fa-solid fa-bullseye"></i> 95% Sensor Accuracy</span>
+            </div>
+            
+            <h3 class="project-title">Underwater Marine Life Tracking System</h3>
+            <p class="project-summary">Raspberry Pi Real-time Telemetry Station</p>
+            
+            <p class="project-desc">
+              Engineered an IoT-based tracking station using Raspberry Pi for continuous marine habitat telemetry. Implemented wireless communication protocols for sensor packet transmission and real-time telemetry analytics using Python.
+            </p>
+
+            <!-- Live Simulated Marine Sensor Stream Widget -->
+            <div class="marine-telemetry-box" id="marine-telemetry">
+              <div class="mt-header">
+                <span><i class="fa-solid fa-satellite-dish blink-dot"></i> SENSOR TELEMETRY STREAM</span>
+                <span class="mt-status">STATION #04 ONLINE</span>
+              </div>
+              <div class="mt-grid">
+                <div class="mt-stat">
+                  <span class="mt-lbl">WATER TEMP</span>
+                  <span class="mt-val" id="sensor-temp">24.6 °C</span>
+                </div>
+                <div class="mt-stat">
+                  <span class="mt-lbl">DEPTH</span>
+                  <span class="mt-val" id="sensor-depth">18.4 m</span>
+                </div>
+                <div class="mt-stat">
+                  <span class="mt-lbl">SALINITY</span>
+                  <span class="mt-val" id="sensor-salinity">34.8 PSU</span>
+                </div>
+                <div class="mt-stat">
+                  <span class="mt-lbl">ACCURACY</span>
+                  <span class="mt-val text-emerald">95.0%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Raspberry Pi</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Wireless Telemetry</span>
+              <span class="tech-tag">Sensor Interfacing</span>
+              <span class="tech-tag">IoT Analytics</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn btn-sm btn-primary" onclick="openTopologyModal('marine')">
+                <i class="fa-solid fa-chart-line"></i> Inspect Architecture
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 4: Customer Support Chatbot -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-badge"><i class="fa-solid fa-robot"></i> Machine Learning & NLP</div>
+              <span class="project-metric"><i class="fa-solid fa-gauge-high"></i> 30% Latency Drop</span>
+            </div>
+            
+            <h3 class="project-title">Intelligent Customer Support Chatbot</h3>
+            <p class="project-summary">Pinnacle Labs Data Science Internship</p>
+            
+            <p class="project-desc">
+              Developed an intelligent, context-aware chatbot using Python and Natural Language Processing (NLP) at Pinnacle Labs. Tuned machine learning classification models and automated response workflows to serve customer queries seamlessly.
+            </p>
+
+            <div class="project-highlights">
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> Processed 100+ customer queries with 85%+ response accuracy</div>
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> Reduced customer response time by 30% via ML automation</div>
+              <div class="ph-item"><i class="fa-solid fa-check text-green"></i> Built data cleaning pipelines and feature engineering workflows</div>
+            </div>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">NLP</span>
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">Data Cleaning</span>
+              <span class="tech-tag">Automation</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn btn-sm btn-primary" onclick="openTopologyModal('chatbot')">
+                <i class="fa-solid fa-info-circle"></i> View Implementation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Recognitions Section -->
+    <section id="certifications" class="section certs-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-award"></i> Verified Credentials</span>
+          <h2 class="section-title">Certifications & <span class="gradient-text">Recognitions</span></h2>
+          <p class="section-subtitle">Industry-recognized networking and cloud credentials validating theoretical and hands-on competence.</p>
+        </div>
+
+        <div class="certs-grid">
+          <!-- Cert 1: CCNA 200-301 -->
+          <div class="cert-card">
+            <div class="cert-icon-box">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <div class="cert-content">
+              <div class="cert-badge-tag">Featured Certification</div>
+              <h3>CCNA 200-301 (Network Fundamentals)</h3>
+              <p class="cert-issuer"><i class="fa-solid fa-certificate"></i> Simplilearn SkillUp</p>
+              <div class="cert-meta">
+                <span><i class="fa-regular fa-calendar-check"></i> Completed: August 20, 2026</span>
+                <span class="text-emerald"><i class="fa-solid fa-circle-check"></i> Verified</span>
+              </div>
+              <p class="cert-detail">
+                Comprehensive training covering network fundamentals, network access, IP connectivity, IP services, security fundamentals, and automation/programmability.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cert 2: Cisco Packet Tracer Advanced -->
+          <div class="cert-card">
+            <div class="cert-icon-box">
+              <i class="fa-solid fa-desktop"></i>
+            </div>
+            <div class="cert-content">
+              <div class="cert-badge-tag">Simulation & Design</div>
+              <h3>Cisco Packet Tracer Advanced Certification</h3>
+              <p class="cert-issuer"><i class="fa-solid fa-award"></i> Network Simulation & Design Expertise</p>
+              <div class="cert-meta">
+                <span><i class="fa-solid fa-cube"></i> Router & Switch CLI Mastery</span>
+                <span class="text-emerald"><i class="fa-solid fa-circle-check"></i> Advanced Level</span>
+              </div>
+              <p class="cert-detail">
+                Demonstrated advanced proficiency in simulating enterprise topologies, VLAN trunking, multi-area OSPF routing, wireless LAN controllers, and VoIP networks.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cert 3: Google Cloud 300+ Badges -->
+          <div class="cert-card">
+            <div class="cert-icon-box">
+              <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="cert-content">
+              <div class="cert-badge-tag">Cloud Honor</div>
+              <h3>Google Cloud Learning Badges</h3>
+              <p class="cert-issuer"><i class="fa-brands fa-google"></i> Google Cloud Platform</p>
+              <div class="cert-meta">
+                <span class="text-amber"><i class="fa-solid fa-trophy"></i> 300+ Completed Badges</span>
+                <span class="text-emerald"><i class="fa-solid fa-gift"></i> Google Swag Recognized</span>
+              </div>
+              <p class="cert-detail">
+                Completed over 300 hands-on Google Cloud skills badges spanning Virtual Private Cloud (VPC) design, compute services, IAM security policies, and cloud infrastructure management.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cert 4: IBM Dev Day -->
+          <div class="cert-card">
+            <div class="cert-icon-box">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
+            <div class="cert-content">
+              <div class="cert-badge-tag">Technical Summit</div>
+              <h3>IBM Dev Day: Bob in Action</h3>
+              <p class="cert-issuer"><i class="fa-solid fa-code"></i> Virtual Event Participation</p>
+              <div class="cert-meta">
+                <span><i class="fa-regular fa-calendar-days"></i> August 27 – 30, 2026</span>
+                <span class="text-cyan"><i class="fa-solid fa-satellite"></i> Global Participation</span>
+              </div>
+              <p class="cert-detail">
+                Participated in IBM developer workshops, exploring enterprise cloud workflows, containerized architectures, and modern development tooling.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Timeline Section -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-clock-rotate-left"></i> Career Journey</span>
+          <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+          <p class="section-subtitle">Hands-on industry experience building intelligent automation systems and machine learning workflows.</p>
+        </div>
+
+        <div class="experience-timeline">
+          <div class="exp-item">
+            <div class="exp-dot"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-role">Data Science Intern</h3>
+                  <div class="exp-company"><i class="fa-solid fa-building"></i> Pinnacle Labs (Remote)</div>
+                </div>
+                <span class="exp-period"><i class="fa-solid fa-calendar"></i> Internship</span>
+              </div>
+
+              <ul class="exp-bullets">
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span>Developed an intelligent <strong>Customer Support Chatbot</strong> using Python and Natural Language Processing (NLP), processing <strong>100+ customer queries with 85%+ response accuracy</strong>.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span>Optimized chatbot response latency through machine learning model parameter tuning and automation logic implementation, <strong>reducing query response times by 30%</strong>.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span>Analyzed and transformed large-scale customer conversational datasets, performing thorough data cleaning, feature engineering, and classification metrics evaluation.</span>
+                </li>
+              </ul>
+
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Natural Language Processing</span>
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Data Cleaning</span>
+                <span class="tech-tag">Performance Tuning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Network CLI Terminal Section -->
+    <section id="terminal-section" class="section terminal-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-terminal"></i> Interactive Shell</span>
+          <h2 class="section-title">Network Engineer <span class="gradient-text">Terminal</span></h2>
+          <p class="section-subtitle">Test network routing, inspect profile data, or run simulated diagnostic tools directly from this interactive console.</p>
+        </div>
+
+        <div class="terminal-wrapper">
+          <div class="terminal-window">
+            <div class="terminal-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">
+                <i class="fa-solid fa-terminal"></i> karbasappa@network-node:~ (bash)
+              </div>
+              <div class="terminal-actions">
+                <button class="term-btn" id="term-clear" title="Clear screen">Clear</button>
+              </div>
+            </div>
+
+            <!-- Terminal Output Area -->
+            <div class="terminal-body" id="terminal-output" tabindex="0" role="region" aria-label="Terminal Output">
+              <div class="term-msg text-cyan">
+                ==================================================================<br>
+                WELCOME TO KARBASAPPA'S NETWORK PROFILE SHELL v2.4 (cisco-ios-sim)<br>
+                Host: presidency-blr-router01 | OS: Ubuntu / Cisco IOS Emulation<br>
+                Type '<span class="text-emerald">help</span>' to view all available commands.<br>
+                ==================================================================
+              </div>
+            </div>
+
+            <!-- Terminal Input Line -->
+            <div class="terminal-input-row">
+              <span class="term-prompt">karbasappa@net-eng:~$</span>
+              <input type="text" id="terminal-input" class="term-input" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g., ping, help, skills)..." aria-label="Terminal Command Input">
+              <button class="btn btn-sm btn-primary term-enter-btn" id="term-submit-btn">Run</button>
+            </div>
+
+            <!-- Quick Command Chips for Fast Clicking -->
+            <div class="terminal-quick-chips">
+              <span class="chips-label">Quick Commands:</span>
+              <button class="chip-btn" data-cmd="help">help</button>
+              <button class="chip-btn" data-cmd="whoami">whoami</button>
+              <button class="chip-btn" data-cmd="ping karbasappa.dev">ping</button>
+              <button class="chip-btn" data-cmd="traceroute gateway">traceroute</button>
+              <button class="chip-btn" data-cmd="skills">skills</button>
+              <button class="chip-btn" data-cmd="projects">projects</button>
+              <button class="chip-btn" data-cmd="cat resume.txt">cat resume</button>
+              <button class="chip-btn" data-cmd="contact">contact</button>
+              <button class="chip-btn" data-cmd="clear">clear</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Connect Section -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-satellite-dish"></i> Direct Uplink</span>
+          <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+          <p class="section-subtitle">Interested in network infrastructure, cloud engineering, or software development? Let's connect.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Contact Details Cards -->
+          <div class="contact-cards">
+            <!-- Email -->
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-info">
+                <span class="contact-type">Email Address</span>
+                <a href="mailto:sigisangamesh6@gmail.com" class="contact-value">sigisangamesh6@gmail.com</a>
+              </div>
+              <button class="btn-copy" onclick="copyToClipboard('sigisangamesh6@gmail.com', 'Email copied to clipboard!')" title="Copy Email">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-info">
+                <span class="contact-type">Phone Number</span>
+                <a href="tel:+918496051416" class="contact-value">+91-8496051416</a>
+              </div>
+              <button class="btn-copy" onclick="copyToClipboard('+918496051416', 'Phone number copied to clipboard!')" title="Copy Phone">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Location -->
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="contact-info">
+                <span class="contact-type">Location</span>
+                <span class="contact-value">Bengaluru, Karnataka, India</span>
+              </div>
+            </div>
+
+            <!-- Profiles & Badges -->
+            <div class="contact-card social-badges-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-globe"></i>
+              </div>
+              <div class="contact-info">
+                <span class="contact-type">Professional Profiles</span>
+                <div class="profile-links-flex">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="profile-pill">
+                    <i class="fa-brands fa-github"></i> GitHub
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="profile-pill">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                  </a>
+                  <a href="https://www.credly.com" target="_blank" rel="noopener noreferrer" class="profile-pill">
+                    <i class="fa-solid fa-award"></i> Credly
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Message Form -->
+          <div class="contact-form-wrapper">
+            <form id="contact-form" class="contact-form">
+              <h3><i class="fa-solid fa-paper-plane"></i> Send Direct Message</h3>
+              <p class="form-desc">Fill out this quick form to send an email inquiry directly to Karbasappa.</p>
+
+              <div class="form-group">
+                <label for="form-name">Your Name</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" id="form-name" required placeholder="Jane Doe">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email">Your Email</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input type="email" id="form-email" required placeholder="jane@example.com">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="form-subject">Subject</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-heading"></i>
+                  <input type="text" id="form-subject" required placeholder="Network Engineering Role / Project Inquiry">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message">Message</label>
+                <textarea id="form-message" rows="4" required placeholder="Hi Karbasappa, I came across your portfolio and would love to discuss..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                <span>Send Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Topology Inspection Modal -->
+  <div id="topology-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <i class="fa-solid fa-sitemap modal-icon"></i>
+          <h3 id="modal-title">Network Architecture Topology</h3>
+        </div>
+        <button class="modal-close-btn" id="modal-close" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Full Resume Modal -->
+  <div id="resume-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="resume-modal-title">
+    <div class="modal-container resume-modal-container">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <i class="fa-solid fa-file-lines modal-icon"></i>
+          <h3 id="resume-modal-title">Curriculum Vitae – Karbasappa</h3>
+        </div>
+        <div class="modal-header-actions">
+          <button class="btn btn-sm btn-primary" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> Print / Save PDF
+          </button>
+          <button class="modal-close-btn" id="resume-modal-close" aria-label="Close modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body resume-modal-body">
+        <div class="resume-paper">
+          <header class="resume-header">
+            <h1>KARBASAPPA</h1>
+            <p class="resume-contact">
+              +91-8496051416 &bull; sigisangamesh6@gmail.com &bull; Bengaluru, India<br>
+              GitHub &bull; LinkedIn &bull; Credly
+            </p>
+          </header>
+
+          <section class="resume-sec">
+            <h2>PROFESSIONAL SUMMARY</h2>
+            <p>
+              Results-driven Computer Science & Networks engineering student with strong foundation in network design, routing protocols, and VoIP technologies. CCNA-certified with hands-on experience in Cisco Packet Tracer, cloud networking, and IoT systems. Passionate about troubleshooting complex network issues and designing scalable solutions.
+            </p>
+          </section>
+
+          <section class="resume-sec">
+            <h2>EDUCATION</h2>
+            <div class="resume-row">
+              <strong>Bachelor of Engineering, Computer Science (Networks)</strong>
+              <span>Expected Graduation: June 2027</span>
+            </div>
+            <p class="resume-sub">Presidency University, Bengaluru</p>
+
+            <div class="resume-row mt-1">
+              <strong>Pre-University (PUC I & II)</strong>
+              <span>2021 – 2023</span>
+            </div>
+            <p class="resume-sub">Diamond PU College, Basavakalyan</p>
+          </section>
+
+          <section class="resume-sec">
+            <h2>TECHNICAL SKILLS</h2>
+            <p><strong>Networking Protocols:</strong> TCP/IP, OSI Model, IPv4/IPv6 Addressing, Subnetting, RIP, OSPF, BGP basics, VLAN, STP, VoIP, Network Troubleshooting</p>
+            <p><strong>Tools & Platforms:</strong> Cisco Packet Tracer (Advanced), Google Cloud Platform (GCP), Linux, Raspberry Pi, Wireshark</p>
+            <p><strong>Cloud & Infrastructure:</strong> Cloud Networking, VPC configuration, Firewall policies, Network security basics</p>
+            <p><strong>Programming Languages:</strong> Python, C++, HTML, CSS, JavaScript, Bash scripting</p>
+          </section>
+
+          <section class="resume-sec">
+            <h2>PROFESSIONAL EXPERIENCE</h2>
+            <div class="resume-row">
+              <strong>Data Science Intern – Pinnacle Labs (Remote)</strong>
+            </div>
+            <ul class="resume-list">
+              <li>Developed an intelligent Customer Support Chatbot using Python and NLP, processing 100+ customer queries with 85%+ response accuracy.</li>
+              <li>Optimized chatbot responses through machine learning model tuning and automation logic implementation, reducing response time by 30%.</li>
+              <li>Worked with large-scale datasets, performing data cleaning, feature engineering, and performance analysis.</li>
+            </ul>
+          </section>
+
+          <section class="resume-sec">
+            <h2>PROJECTS & ACHIEVEMENTS</h2>
+            <div class="resume-row">
+              <strong>VoIP Network Implementation – Cisco Packet Tracer</strong>
+            </div>
+            <ul class="resume-list">
+              <li>Designed and deployed a fully functional VoIP network topology supporting 20+ IP phones across multiple departments.</li>
+              <li>Configured routers, switches, VLANs, IPv4 addressing scheme, and integrated Cisco Call Manager services with 99.2% uptime.</li>
+              <li>Tested voice transmission quality, resolved latency issues, and documented network configuration for future maintenance.</li>
+            </ul>
+
+            <div class="resume-row mt-1">
+              <strong>Campus Network Design – Multi-Building Infrastructure</strong>
+            </div>
+            <ul class="resume-list">
+              <li>Architected a campus-wide network supporting 500+ devices across 3 buildings with redundancy and failover mechanisms.</li>
+              <li>Implemented dynamic routing using RIP and OSPF protocols; validated network connectivity with 98.5% packet delivery success rate.</li>
+              <li>Configured HTTP, DNS, and DHCP services; performed load testing and network optimization.</li>
+            </ul>
+
+            <div class="resume-row mt-1">
+              <strong>Underwater Marine Life Tracking System – IoT Solution</strong>
+            </div>
+            <ul class="resume-list">
+              <li>Developed IoT-based tracking system using Raspberry Pi for real-time marine data collection with 95% sensor accuracy.</li>
+              <li>Integrated wireless communication protocols for data transmission; processed and analyzed sensor telemetry data using Python.</li>
+              <li>Designed dashboard for real-time monitoring and historical data analysis.</li>
+            </ul>
+          </section>
+
+          <section class="resume-sec">
+            <h2>CERTIFICATIONS & RECOGNITIONS</h2>
+            <ul class="resume-list">
+              <li><strong>CCNA 200-301 (Network Fundamentals)</strong> – Simplilearn SkillUp | Completed: August 20, 2026</li>
+              <li><strong>Cisco Packet Tracer Advanced Certification</strong> – Network simulation and design expertise</li>
+              <li><strong>IBM Dev Day: Bob in Action</strong> – Virtual Event Participation | August 27-30, 2026</li>
+              <li><strong>Google Cloud Learning Badges</strong> – 300+ badges completed; recognized with Google swag</li>
+            </ul>
+          </section>
+
+          <section class="resume-sec">
+            <h2>CORE COMPETENCIES & LANGUAGES</h2>
+            <p>Network Design & Architecture &bull; Troubleshooting & Diagnostics &bull; Problem Solving &bull; Team Collaboration &bull; Project Management &bull; Quick Learner &bull; Time Management &bull; Communication &bull; Cloud Computing</p>
+            <p><strong>Languages:</strong> English &bull; Kannada &bull; Hindi</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-name">Karbasappa</span>
+          <span class="logo-bracket">/&gt;</span>
+        </div>
+        <p class="footer-tagline">Building scalable network architectures & connected software systems.</p>
+        <p class="footer-copy">&copy; 2026 Karbasappa. All rights reserved.</p>
+      </div>
+
+      <div class="footer-status-box">
+        <div class="network-pulse-stat">
+          <span class="pulse-emerald"></span>
+          <span class="net-status-title">SYSTEM STATUS: OPTIMAL</span>
+        </div>
+        <div class="net-status-details">
+          <span>Gateway: 10.0.0.1</span> &bull;
+          <span>MTU: 1500</span> &bull;
+          <span>Ping: 0.4ms</span>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-socials">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.credly.com" target="_blank" rel="noopener noreferrer" aria-label="Credly"><i class="fa-solid fa-award"></i></a>
+          <a href="mailto:sigisangamesh6@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <a href="#hero" class="back-to-top" aria-label="Back to top of page">
+          <i class="fa-solid fa-chevron-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
