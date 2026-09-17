@@ -522,8 +522,8 @@ Type '<span class="text-emerald">contact</span>' to connect directly.
 <span class="text-cyan">Email:</span>    sigisangamesh6@gmail.com
 <span class="text-cyan">Phone:</span>    +91-8496051416
 <span class="text-cyan">Location:</span> Bengaluru, Karnataka, India
-<span class="text-cyan">GitHub:</span>   github.com
-<span class="text-cyan">LinkedIn:</span> linkedin.com
+<span class="text-cyan">GitHub:</span>   github.com/karbasappasigi
+<span class="text-cyan">LinkedIn:</span> linkedin.com/in/karbasappa
 <span class="text-cyan">Credly:</span>   credly.com
         `);
         break;

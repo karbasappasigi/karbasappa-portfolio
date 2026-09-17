@@ -64,18 +64,15 @@ npx serve .
 ## 🌐 Free One-Click Deployment
 
 ### 1. GitHub Pages
-1. Create a new GitHub repository named `portfolio` or `<username>.github.io`.
+1. Create a new GitHub repository named `karbasappa-portfolio` at [github.com/new](https://github.com/new).
 2. Push this folder's contents to the repository:
    ```bash
-   git init
-   git add .
-   git commit -m "Initial portfolio release"
-   git branch -M main
-   git remote add origin https://github.com/<username>/portfolio.git
+   git remote add origin https://github.com/karbasappasigi/karbasappa-portfolio.git
    git push -u origin main
    ```
 3. Go to **Settings > Pages** in your GitHub repository.
-4. Select the `main` branch and `/ (root)` folder, then click **Save**. Your site will be live at `https://<username>.github.io/portfolio/`.
+4. Under **Build and deployment > Source**, select **GitHub Actions** (workflow `.github/workflows/deploy.yml` is already included).
+5. Your site will be live at `https://karbasappasigi.github.io/karbasappa-portfolio/`.
 
 ### 2. Vercel / Netlify
 - Drag and drop the `karbasappa-portfolio` folder directly into [Netlify Drop](https://app.netlify.com/drop) for instant deployment with a free HTTPS URL.

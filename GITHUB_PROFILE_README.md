@@ -1,7 +1,7 @@
 <div align="center">
 
   <!-- Animated Typing Header -->
-  <a href="https://github.com/sigisangamesh">
+  <a href="https://github.com/karbasappasigi">
     <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&pause=1000&color=00F0FF&center=true&vCenter=true&width=650&lines=Hi+%F0%9F%91%8B+I'm+Karbasappa;Network+Engineer+%26+Cloud+Enthusiast;CCNA+Certified+%7C+VoIP+%7C+Routing+Protocols;Google+Cloud+Swag+Awardee+%7C+300%2B+Badges;Computer+Science+at+Presidency+University" alt="Typing SVG" />
   </a>
 
@@ -12,7 +12,7 @@
 
   <!-- Visitor Counter & Quick Status Badges -->
   <p align="center">
-    <img src="https://komarev.com/ghpvc/?username=sigisangamesh&label=PROFILE+VIEWS&color=00f0ff&style=flat-square" alt="Profile Views" />
+    <img src="https://komarev.com/ghpvc/?username=karbasappasigi&label=PROFILE+VIEWS&color=00f0ff&style=flat-square" alt="Profile Views" />
     <img src="https://img.shields.io/badge/STATUS-AVAILABLE_FOR_INTERNSHIPS-brightgreen?style=flat-square" alt="Status" />
     <img src="https://img.shields.io/badge/GOOGLE_CLOUD-OFFICIAL_SWAG_AWARDEE-4285F4?style=flat-square&logo=googlecloud&logoColor=white" alt="Google Cloud Swag" />
   </p>
@@ -31,7 +31,7 @@
     <a href="tel:+918496051416">
       <img src="https://img.shields.io/badge/Phone-%2B91--8496051416-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Phone" />
     </a>
-    <a href="https://sigisangamesh.github.io/karbasappa-portfolio/">
+    <a href="https://karbasappasigi.github.io/karbasappa-portfolio/">
       <img src="https://img.shields.io/badge/Live_Portfolio-Interactive_Website-00F0FF?style=for-the-badge&logo=google-chrome&logoColor=black" alt="Portfolio" />
     </a>
   </p>
@@ -72,7 +72,7 @@ karbasappa@core-router:~$ whoami --verbose
 | 🚀 **Key Projects** | • **VoIP Network Implementation**: 20+ IP phones, Cisco CME, Voice VLANs, QoS, 99.2% uptime<br>• **Campus Network Multi-Building Design**: 500+ endpoints across 3 buildings, OSPF/RIP failover<br>• **Underwater Marine Life Tracking System**: Raspberry Pi IoT telemetry buoy, 95% accuracy |
 | 🛠️ **Core Skills** | Network Design, OSPF/RIP/BGP, Subnetting, VLAN, VoIP, Packet Tracer, GCP VPC, Wireshark, Python, C++, HTML/CSS/JS |
 
-🔗 **[Click here to view & print the interactive full-screen CV in my Web Portfolio](https://sigisangamesh.github.io/karbasappa-portfolio/#resume)**
+🔗 **[Click here to view & print the interactive full-screen CV in my Web Portfolio](https://karbasappasigi.github.io/karbasappa-portfolio/#resume)**
 
 ---
 
@@ -185,15 +185,15 @@ karbasappa@core-router:~$ whoami --verbose
 <div align="center">
 
   <!-- GitHub Readme Stats Card -->
-  <a href="https://github.com/sigisangamesh">
-    <img height="165em" src="https://github-readme-stats.vercel.app/api?username=sigisangamesh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00f0ff&icon_color=00f0ff&text_color=c9d1d9" alt="Karbasappa's GitHub Stats" />
-    <img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sigisangamesh&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00f0ff&text_color=c9d1d9" alt="Top Languages" />
+  <a href="https://github.com/karbasappasigi">
+    <img height="165em" src="https://github-readme-stats.vercel.app/api?username=karbasappasigi&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00f0ff&icon_color=00f0ff&text_color=c9d1d9" alt="Karbasappa's GitHub Stats" />
+    <img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=karbasappasigi&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00f0ff&text_color=c9d1d9" alt="Top Languages" />
   </a>
 
   <!-- Streak Stats Card -->
   <p align="center">
-    <a href="https://github.com/sigisangamesh">
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=sigisangamesh&theme=tokyonight&hide_border=true&background=0d1117&stroke=00f0ff&ring=00f0ff&fire=00f0ff&currStreakNum=00f0ff" alt="Karbasappa's Streak" />
+    <a href="https://github.com/karbasappasigi">
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=karbasappasigi&theme=tokyonight&hide_border=true&background=0d1117&stroke=00f0ff&ring=00f0ff&fire=00f0ff&currStreakNum=00f0ff" alt="Karbasappa's Streak" />
     </a>
   </p>
 
@@ -209,7 +209,7 @@ I am actively seeking **internships and full-time opportunities** in **Network E
 - 📱 **Phone:** [+91-8496051416](tel:+918496051416)
 - 💼 **LinkedIn:** [linkedin.com/in/karbasappa](https://linkedin.com/in/karbasappa)
 - 🎖️ **Credly:** [credly.com](https://www.credly.com)
-- 🌐 **Live Web Portfolio:** [Open Portfolio & Interactive CV](https://sigisangamesh.github.io/karbasappa-portfolio/)
+- 🌐 **Live Web Portfolio:** [Open Portfolio & Interactive CV](https://karbasappasigi.github.io/karbasappa-portfolio/)
 
 <p align="center">
   <sub>⚡ Designed with passion for robust networking, high availability, and packet efficiency.</sub>
