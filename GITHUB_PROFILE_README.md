@@ -22,8 +22,8 @@
     <a href="mailto:sigisangamesh6@gmail.com">
       <img src="https://img.shields.io/badge/Email-sigisangamesh6%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
     </a>
-    <a href="https://linkedin.com/in/karbasappa" target="_blank">
-      <img src="https://img.shields.io/badge/LinkedIn-Karbasappa-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    <a href="https://www.linkedin.com/in/karbasappa-seegi" target="_blank">
+      <img src="https://img.shields.io/badge/LinkedIn-Karbasappa_Seegi-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a>
     <a href="https://www.credly.com" target="_blank">
       <img src="https://img.shields.io/badge/Credly-Verified_Badges-FF6B00?style=for-the-badge&logo=credly&logoColor=white" alt="Credly" />
@@ -207,7 +207,7 @@ I am actively seeking **internships and full-time opportunities** in **Network E
 
 - 📧 **Email:** [sigisangamesh6@gmail.com](mailto:sigisangamesh6@gmail.com)
 - 📱 **Phone:** [+91-8496051416](tel:+918496051416)
-- 💼 **LinkedIn:** [linkedin.com/in/karbasappa](https://linkedin.com/in/karbasappa)
+- 💼 **LinkedIn:** [linkedin.com/in/karbasappa-seegi](https://www.linkedin.com/in/karbasappa-seegi)
 - 🎖️ **Credly:** [credly.com](https://www.credly.com)
 - 🌐 **Live Web Portfolio:** [Open Portfolio & Interactive CV](https://karbasappasigi.github.io/karbasappa-portfolio/)
 
