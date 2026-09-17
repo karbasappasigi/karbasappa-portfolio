@@ -469,7 +469,7 @@ rtt min/avg/max/mdev = 0.385/0.397/0.412/0.010 ms
 <span class="text-cyan">Networking Protocols:</span> TCP/IP, OSI Model, IPv4/IPv6, Subnetting (VLSM), RIP, OSPF, BGP basics, VLANs (802.1Q), STP, VoIP, Network Troubleshooting
 <span class="text-cyan">Tools & Platforms:</span>    Cisco Packet Tracer (Advanced), Google Cloud Platform (GCP), Linux, Raspberry Pi, Wireshark
 <span class="text-cyan">Cloud & Infrastructure:</span>Cloud Networking, VPC configuration, Firewall policies, Network Security
-<span class="text-cyan">Languages:</span>            Python, C++, HTML, CSS, JavaScript, Bash scripting
+<span class="text-cyan">Languages:</span>            Python, C++, HTML, CSS, JavaScript
         `);
         break;
 
@@ -490,8 +490,8 @@ rtt min/avg/max/mdev = 0.385/0.397/0.412/0.010 ms
       case 'certs':
         appendOutput(`
 <span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">CCNA 200-301 (Network Fundamentals)</span> - Simplilearn SkillUp (Completed: August 20, 2026)
+<span class="text-amber">[AWARDEE]</span>  <span class="text-cyan">Google Cloud 300+ Badges & Official Google Swag</span> - Completed 300+ Badges & Awarded Official Google Swag Kit Directly by Google
 <span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">Cisco Packet Tracer Advanced</span> - Simulation & Design Expertise
-<span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">Google Cloud Learning Badges</span> - 300+ Badges Completed & Recognized with Google Swag
 <span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">IBM Dev Day: Bob in Action</span> - Virtual Summit Participation (August 27-30, 2026)
         `);
         break;
@@ -506,7 +506,7 @@ Bengaluru, India | +91-8496051416 | sigisangamesh6@gmail.com
 * Bachelor of Engineering, CS (Networks) - Presidency University (Grad: 2027)
 * Pre-University (PUC I & II) - Diamond PU College (2021-2023)
 * CCNA 200-301 Certified & Cisco Packet Tracer Advanced Certified
-* 300+ Google Cloud Platform Learning Badges
+* 300+ Google Cloud Badges & Official Google Swag Kit Awardee
 * Data Science Intern @ Pinnacle Labs
 * Key Projects: VoIP Implementation (20+ phones), Campus Multi-Building Network (500+ hosts), Marine IoT Telemetry
 Type '<span class="text-emerald">contact</span>' to connect directly.
@@ -644,14 +644,23 @@ function initModals() {
   const openResumeBtn = document.getElementById('btn-open-resume');
   const resumeClose = document.getElementById('resume-modal-close');
 
-  // Resume Modal
-  if (openResumeBtn && resumeModal) {
-    openResumeBtn.addEventListener('click', () => {
+  // Resume Modal handler
+  window.openResumeModal = () => {
+    if (resumeModal) {
       resumeModal.classList.add('active');
       resumeModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-    });
+    }
+  };
+
+  if (openResumeBtn) {
+    openResumeBtn.addEventListener('click', window.openResumeModal);
   }
+
+  const resumeTriggers = document.querySelectorAll('.open-resume-trigger');
+  resumeTriggers.forEach(btn => {
+    btn.addEventListener('click', window.openResumeModal);
+  });
 
   if (resumeClose && resumeModal) {
     resumeClose.addEventListener('click', () => {

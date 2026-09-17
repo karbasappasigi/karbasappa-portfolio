@@ -2,18 +2,19 @@
 
   <!-- Animated Typing Header -->
   <a href="https://github.com/sigisangamesh">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&pause=1000&color=00F0FF&center=true&vCenter=true&width=650&lines=Hi+%F0%9F%91%8B+I'm+Karbasappa;Network+Engineer+%26+Cloud+Enthusiast;CCNA+Certified+%7C+VoIP+%7C+Routing+Protocols;Computer+Science+at+Presidency+University" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&pause=1000&color=00F0FF&center=true&vCenter=true&width=650&lines=Hi+%F0%9F%91%8B+I'm+Karbasappa;Network+Engineer+%26+Cloud+Enthusiast;CCNA+Certified+%7C+VoIP+%7C+Routing+Protocols;Google+Cloud+Swag+Awardee+%7C+300%2B+Badges;Computer+Science+at+Presidency+University" alt="Typing SVG" />
   </a>
 
   <p align="center">
     <strong>B.E. Computer Science (Networks) @ Presidency University, Bengaluru (Exp. 2027)</strong><br>
-    📍 Bengaluru, Karnataka, India &nbsp;|&nbsp; 🌐 CCNA Certified &nbsp;|&nbsp; ☁️ 300+ Google Cloud Badges
+    📍 Bengaluru, Karnataka, India &nbsp;|&nbsp; 🌐 CCNA Certified &nbsp;|&nbsp; 🎁 Awarded Official Google Cloud Swag
   </p>
 
-  <!-- Visitor Counter & Quick Status -->
+  <!-- Visitor Counter & Quick Status Badges -->
   <p align="center">
     <img src="https://komarev.com/ghpvc/?username=sigisangamesh&label=PROFILE+VIEWS&color=00f0ff&style=flat-square" alt="Profile Views" />
     <img src="https://img.shields.io/badge/STATUS-AVAILABLE_FOR_INTERNSHIPS-brightgreen?style=flat-square" alt="Status" />
+    <img src="https://img.shields.io/badge/GOOGLE_CLOUD-OFFICIAL_SWAG_AWARDEE-4285F4?style=flat-square&logo=googlecloud&logoColor=white" alt="Google Cloud Swag" />
   </p>
 
   <!-- Social & Direct Action Badges -->
@@ -30,9 +31,19 @@
     <a href="tel:+918496051416">
       <img src="https://img.shields.io/badge/Phone-%2B91--8496051416-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Phone" />
     </a>
+    <a href="https://sigisangamesh.github.io/karbasappa-portfolio/">
+      <img src="https://img.shields.io/badge/Live_Portfolio-Interactive_Website-00F0FF?style=for-the-badge&logo=google-chrome&logoColor=black" alt="Portfolio" />
+    </a>
   </p>
 
 </div>
+
+---
+
+### 🎁 Special Recognition: Official Google Cloud Swag Awardee
+
+> **🏆 Honored by Google Cloud**: Completed **300+ verified Google Cloud skill badges and cloud milestone challenges** spanning Virtual Private Cloud (VPC) architecture, Identity and Access Management (IAM), compute engines, and cloud network security.  
+> In recognition of this achievement, **Google directly awarded and sent me an official Google Cloud Swag Kit** (exclusive Google Cloud merchandise and collectibles)!
 
 ---
 
@@ -43,11 +54,25 @@ karbasappa@core-router:~$ whoami --verbose
 ```
 
 - 🎓 **Education:** Pursuing **B.E. in Computer Science (Networks)** at **Presidency University, Bengaluru** (Expected Graduation: June 2027).
-- 📜 **Certification:** **CCNA 200-301 Certified** (Network Fundamentals & Enterprise Architectures).
-- 🔌 **Networking Expertise:** Hands-on experience architecting multi-building campus networks, VoIP telecommunications with Cisco Call Manager Express (CME), dynamic routing protocols (**OSPF, RIP, BGP basics**), VLAN segmentation, STP, and Wireshark packet inspection.
-- ☁️ **Cloud & Systems:** 300+ **Google Cloud Platform (GCP)** learning badges completed, VPC network peering, firewall rules, and Linux administration.
+- 📜 **Certification:** **CCNA 200-301 Certified** (Network Fundamentals, Switching & Routing Architectures).
+- 🔌 **Networking Expertise:** Hands-on experience architecting multi-building campus networks, enterprise VoIP telecommunications with Cisco Call Manager Express (CME), dynamic routing protocols (**OSPF, RIP, BGP basics**), VLAN segmentation, STP, and Wireshark packet inspection.
+- ☁️ **Cloud & Systems:** **300+ Google Cloud Platform (GCP) badges** completed, VPC network peering, firewall rules, and Linux administration.
 - 🤖 **IoT & Automation:** Built an underwater marine life monitoring system using **Raspberry Pi** and telemetry sensors with 95% accuracy; developed automated NLP customer support chatbots with Python.
 - 💬 **Languages Spoken:** English, Kannada, Hindi.
+
+---
+
+### 📄 Curriculum Vitae & Summary
+
+| Category | Details |
+| :--- | :--- |
+| 🎓 **Education** | **B.E. Computer Science (Networks)**, Presidency University, Bengaluru (Expected: June 2027)<br>**Pre-University (PUC I & II)**, Diamond PU College, Basavakalyan (2021 – 2023) |
+| 💼 **Experience** | **Data Science Intern – Pinnacle Labs (Remote)**<br>• Built Python NLP Customer Support Chatbot (100+ queries/day, 85%+ accuracy)<br>• Tuned models and automation pipelines, slashing response latency by 30% |
+| 📜 **Certifications** | • **CCNA 200-301 (Network Fundamentals)** – Simplilearn SkillUp (August 2026)<br>• **Google Cloud 300+ Badges & Official Swag Award** – Received official swag kit from Google<br>• **Cisco Packet Tracer Advanced Certification** – Enterprise network simulation & design<br>• **IBM Dev Day: Bob in Action** – Virtual Summit Participation (August 2026) |
+| 🚀 **Key Projects** | • **VoIP Network Implementation**: 20+ IP phones, Cisco CME, Voice VLANs, QoS, 99.2% uptime<br>• **Campus Network Multi-Building Design**: 500+ endpoints across 3 buildings, OSPF/RIP failover<br>• **Underwater Marine Life Tracking System**: Raspberry Pi IoT telemetry buoy, 95% accuracy |
+| 🛠️ **Core Skills** | Network Design, OSPF/RIP/BGP, Subnetting, VLAN, VoIP, Packet Tracer, GCP VPC, Wireshark, Python, C++, HTML/CSS/JS |
+
+🔗 **[Click here to view & print the interactive full-screen CV in my Web Portfolio](https://sigisangamesh.github.io/karbasappa-portfolio/#resume)**
 
 ---
 
@@ -66,13 +91,12 @@ karbasappa@core-router:~$ whoami --verbose
 ![Cisco Packet Tracer](https://img.shields.io/badge/Cisco_Packet_Tracer-Advanced_Design-049fd9?style=flat-square&logo=cisco&logoColor=white)
 
 #### ☁️ Cloud, Systems & Hardware
-![Google Cloud](https://img.shields.io/badge/Google_Cloud_Platform-300+_Badges-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Google_Cloud_Platform-300+_Badges_%26_Swag-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
 ![Cloud Networking](https://img.shields.io/badge/Cloud-VPC_%26_Firewalls-F59E0B?style=flat-square)
 ![Linux](https://img.shields.io/badge/Linux-Ubuntu_%2F_Debian-FCC624?style=flat-square&logo=linux&logoColor=black)
 ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-IoT_Hardware-C51A4A?style=flat-square&logo=raspberrypi&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-Shell_Scripting-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 
-#### 💻 Programming & Core Tech
+#### 💻 Programming Languages
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white)
 ![C++](https://img.shields.io/badge/C++-Modern-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
@@ -149,10 +173,10 @@ karbasappa@core-router:~$ whoami --verbose
 
 ### 📜 Certifications & Honors
 
-- 🥇 **CCNA 200-301 (Network Fundamentals)** &nbsp;|&nbsp; *Simplilearn SkillUp* (Aug 2026)
-- 🏅 **Cisco Packet Tracer Advanced Certification** &nbsp;|&nbsp; *Network Simulation & Topology Design*
-- ☁️ **Google Cloud Learning Badges (300+ Badges)** &nbsp;|&nbsp; *Recognized with Official Google Cloud Swag*
-- 🌐 **IBM Dev Day: Bob in Action** &nbsp;|&nbsp; *Virtual Event Participant* (Aug 2026)
+- 🥇 **CCNA 200-301 (Network Fundamentals)** &nbsp;|&nbsp; *Simplilearn SkillUp* (Completed: Aug 20, 2026)
+- ☁️ **Google Cloud 300+ Badges & Official Google Swag Award** &nbsp;|&nbsp; *Awarded Official Swag Kit directly by Google for mastering 300+ skill badges*
+- 🏅 **Cisco Packet Tracer Advanced Certification** &nbsp;|&nbsp; *Network Simulation & Topology Design Expertise*
+- 🌐 **IBM Dev Day: Bob in Action** &nbsp;|&nbsp; *Virtual Event Participant* (Aug 27–30, 2026)
 
 ---
 
@@ -185,7 +209,7 @@ I am actively seeking **internships and full-time opportunities** in **Network E
 - 📱 **Phone:** [+91-8496051416](tel:+918496051416)
 - 💼 **LinkedIn:** [linkedin.com/in/karbasappa](https://linkedin.com/in/karbasappa)
 - 🎖️ **Credly:** [credly.com](https://www.credly.com)
-- 🌐 **Live Web Portfolio:** [View Portfolio Website](https://sigisangamesh.github.io/karbasappa-portfolio/)
+- 🌐 **Live Web Portfolio:** [Open Portfolio & Interactive CV](https://sigisangamesh.github.io/karbasappa-portfolio/)
 
 <p align="center">
   <sub>⚡ Designed with passion for robust networking, high availability, and packet efficiency.</sub>
