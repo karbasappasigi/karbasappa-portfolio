@@ -466,7 +466,7 @@ rtt min/avg/max/mdev = 0.385/0.397/0.412/0.010 ms
 
       case 'skills':
         appendOutput(`
-<span class="text-cyan">Networking Protocols:</span> TCP/IP, OSI Model, IPv4/IPv6, Subnetting (VLSM), RIP, OSPF, BGP basics, VLANs (802.1Q), STP, VoIP, Network Troubleshooting
+<span class="text-cyan">Networking Protocols:</span> TCP/IP, OSI Model, IPv4/IPv6, Subnetting (VLSM), RIP, OSPF, BGP basics, VLANs, STP, VoIP, Network Troubleshooting
 <span class="text-cyan">Tools & Platforms:</span>    Cisco Packet Tracer (Advanced), Google Cloud Platform (GCP), Linux, Raspberry Pi, Wireshark
 <span class="text-cyan">Cloud & Infrastructure:</span>Cloud Networking, VPC configuration, Firewall policies, Network Security
 <span class="text-cyan">Languages:</span>            Python, C++, HTML, CSS, JavaScript
