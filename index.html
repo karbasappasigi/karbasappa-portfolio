@@ -1053,9 +1053,9 @@
             <div class="terminal-body" id="terminal-output" tabindex="0" role="region" aria-label="Terminal Output">
               <div class="term-msg text-cyan">
                 ==================================================================<br>
-                WELCOME TO KARBASAPPA'S NETWORK PROFILE SHELL v2.4 (cisco-ios-sim)<br>
+                WELCOME TO KARBASAPPA'S NETWORK PROFILE SHELL v2.5 (cisco-ios-sim)<br>
                 Host: presidency-blr-router01 | OS: Ubuntu / Cisco IOS Emulation<br>
-                Type '<span class="text-emerald">help</span>' to view all available commands.<br>
+                Type '<span class="text-emerald">help</span>', '<span class="text-emerald">ipconfig</span>', '<span class="text-emerald">getmac</span>', '<span class="text-emerald">arp -a</span>', or '<span class="text-emerald">ping 8.8.8.8</span>' to start.<br>
                 ==================================================================
               </div>
             </div>
@@ -1063,7 +1063,7 @@
             <!-- Terminal Input Line -->
             <div class="terminal-input-row">
               <span class="term-prompt">karbasappa@net-eng:~$</span>
-              <input type="text" id="terminal-input" class="term-input" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g., ping, help, skills)..." aria-label="Terminal Command Input">
+              <input type="text" id="terminal-input" class="term-input" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g. ping 8.8.8.8, ipconfig, getmac, arp -a)..." aria-label="Terminal Command Input">
               <button class="btn btn-sm btn-primary term-enter-btn" id="term-submit-btn">Run</button>
             </div>
 
@@ -1071,13 +1071,16 @@
             <div class="terminal-quick-chips">
               <span class="chips-label">Quick Commands:</span>
               <button class="chip-btn" data-cmd="help">help</button>
+              <button class="chip-btn" data-cmd="ipconfig">ipconfig</button>
+              <button class="chip-btn" data-cmd="getmac">getmac</button>
+              <button class="chip-btn" data-cmd="arp -a">arp -a</button>
+              <button class="chip-btn" data-cmd="ping 8.8.8.8">ping 8.8.8.8</button>
+              <button class="chip-btn" data-cmd="ping 10.0.0.1">ping 10.0.0.1</button>
+              <button class="chip-btn" data-cmd="show mac">show mac</button>
+              <button class="chip-btn" data-cmd="show ip route">show ip route</button>
               <button class="chip-btn" data-cmd="whoami">whoami</button>
-              <button class="chip-btn" data-cmd="ping karbasappa.dev">ping</button>
-              <button class="chip-btn" data-cmd="traceroute gateway">traceroute</button>
               <button class="chip-btn" data-cmd="skills">skills</button>
-              <button class="chip-btn" data-cmd="projects">projects</button>
               <button class="chip-btn" data-cmd="cat resume.txt">cat resume</button>
-              <button class="chip-btn" data-cmd="contact">contact</button>
               <button class="chip-btn" data-cmd="clear">clear</button>
             </div>
           </div>

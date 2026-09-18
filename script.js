@@ -408,61 +408,364 @@ function initTerminal() {
     historyLine.innerHTML = `<span class="term-prompt-history">karbasappa@net-eng:~$</span> ${escapeHTML(fullCmd)}`;
     terminalOutput.appendChild(historyLine);
 
+    const fullCmdLower = fullCmd.toLowerCase();
+
+    // Multi-word command routing
+    if (fullCmdLower.startsWith('show mac') || fullCmdLower === 'mac-table' || fullCmdLower === 'mactable') {
+      appendOutput(`
+<span class="text-cyan">Cisco Catalyst 2960-X Campus Switch - MAC Forwarding Table</span>
+<span class="text-muted">--------------------------------------------------------------------------------</span>
+<span class="text-emerald">Vlan    Mac Address       Type       Ports      Connected Device / Description</span>
+<span class="text-muted">----    -----------       --------   -----      ------------------------------</span>
+10      0014.f25a.8b01    DYNAMIC    Fa0/1      Cisco IP Phone 7965G (VoIP Ext: 1001)
+10      0014.f25a.8b02    DYNAMIC    Fa0/2      Cisco IP Phone 7965G (VoIP Ext: 1002)
+20      e4c7.226f.a190    DYNAMIC    Gi0/1      Core Router Trunk Link (802.1Q IEEE)
+30      b827.eb3d.9a11    DYNAMIC    Fa0/24     Raspberry Pi Marine Sensor Station
+1       001a.2b3c.4d5e    DYNAMIC    Gi0/2      Karbasappa Eng Workstation (Host)
+All     0100.0ccc.cccc    STATIC     CPU        Cisco CDP / VTP / DTP / UDLD Protocol
+<span class="text-muted">--------------------------------------------------------------------------------</span>
+<span class="text-cyan">Total MAC entries: 6 | Aging-Time: 300s | Forwarding state: HEALTHY</span>
+      `);
+      return;
+    }
+
+    if (fullCmdLower.startsWith('show ip route') || fullCmdLower === 'route' || fullCmdLower === 'netstat -r') {
+      appendOutput(`
+<span class="text-cyan">Cisco IOS Routing Table (Presidency Core Router-01)</span>
+<span class="text-muted">Codes: C - Connected, S - Static, R - RIP, O - OSPF (Area 0), B - BGP, * - Candidate Default</span>
+<span class="text-muted">Gateway of last resort is 192.168.1.1 to network 0.0.0.0</span>
+
+<span class="text-emerald">S*</span>    0.0.0.0/0 [1/0] via 192.168.1.1, GigabitEthernet0/1 (ISP Gateway)
+<span class="text-emerald">C </span>    192.168.1.0/24 is directly connected, GigabitEthernet0/1 (Management LAN)
+<span class="text-emerald">L </span>    192.168.1.105/32 is directly connected, GigabitEthernet0/1 (Host IP)
+<span class="text-amber">O </span>    10.0.0.0/16 [110/2] via 192.168.1.1, 04:12:30, GigabitEthernet0/1 (Campus Backbone)
+<span class="text-amber">O </span>    172.16.10.0/24 [110/5] via 192.168.1.1, 03:45:11, GigabitEthernet0/1 (Voice VLAN 10)
+<span class="text-purple">B </span>    10.142.0.0/20 [20/0] via 10.142.0.1, 12:08:44 (Google Cloud VPC Interconnect)
+      `);
+      return;
+    }
+
+    if (fullCmdLower.startsWith('show ip int') || fullCmdLower === 'show ip interface brief') {
+      appendOutput(`
+<span class="text-cyan">Interface                  IP-Address      OK? Method Status                Protocol</span>
+<span class="text-muted">----------------------------------------------------------------------------------</span>
+GigabitEthernet0/1         192.168.1.105   YES NVRAM  <span class="text-emerald">up                    up</span>
+GigabitEthernet0/2         10.10.24.88     YES DHCP   <span class="text-emerald">up                    up</span>
+FastEthernet0/1            172.16.10.15    YES manual <span class="text-emerald">up                    up</span>
+Vlan1                      192.168.1.1     YES NVRAM  <span class="text-emerald">up                    up</span>
+Tunnel0 (Cloud-GCP)        10.142.0.2      YES manual <span class="text-emerald">up                    up</span>
+Loopback0                  127.0.0.1       YES NVRAM  <span class="text-emerald">up                    up</span>
+      `);
+      return;
+    }
+
+    if (fullCmdLower === 'show vlan' || fullCmdLower === 'show vlan brief') {
+      appendOutput(`
+<span class="text-cyan">VLAN Name                             Status    Ports</span>
+<span class="text-muted">---- -------------------------------- --------- -------------------------------</span>
+1    default                          active    Gi0/2, Fa0/3, Fa0/4, Fa0/5
+10   VOICE_CME_DEPT                   active    Fa0/1, Fa0/2
+20   CAMPUS_CORE_BACKBONE             active    Gi0/1
+30   IOT_MARINE_TELEMETRY             active    Fa0/24
+100  GCP_CLOUD_INTERCONNECT           active    Tunnel0
+      `);
+      return;
+    }
+
+    if (fullCmdLower.startsWith('arp') || fullCmdLower === 'show arp') {
+      appendOutput(`
+<span class="text-cyan">Interface: 192.168.1.105 --- 0x3 (Gigabit Ethernet 0/1)</span>
+<span class="text-muted">------------------------------------------------------------------------------</span>
+<span class="text-emerald">Internet Address      Physical Address (MAC)      Type        Node Identity / Role</span>
+<span class="text-muted">----------------      ----------------------      --------    --------------------</span>
+192.168.1.1           e4-c7-22-6f-a1-90           dynamic     Cisco Core Gateway Router
+192.168.1.20          00-0c-29-b3-78-41           dynamic     Cisco CME VoIP PBX Server
+192.168.1.45          b8-27-eb-3d-9a-11           dynamic     Raspberry Pi Marine Telemetry
+192.168.1.120         f4-d4-88-21-39-01           dynamic     NOC Admin Terminal
+192.168.1.255         ff-ff-ff-ff-ff-ff           static      Subnet Local Broadcast
+224.0.0.5             01-00-5e-00-00-05           static      OSPF AllRouters Multicast
+224.0.0.251           01-00-5e-00-00-fb           static      mDNS Local Discovery
+<span class="text-muted">------------------------------------------------------------------------------</span>
+<span class="text-cyan">ARP cache resolved: 7 active entries | Protocol: IPv4 over Ethernet IEEE 802.3</span>
+      `);
+      return;
+    }
+
     switch (command) {
       case 'help':
         appendOutput(`
-<span class="text-cyan">Available System Commands:</span>
-  <span class="text-emerald">help</span>            - Display this manual
-  <span class="text-emerald">whoami</span>          - Display engineer profile & qualifications
-  <span class="text-emerald">ping [host]</span>     - Simulate ICMP ping to target host
-  <span class="text-emerald">traceroute [host]</span>- Trace network hops to destination
-  <span class="text-emerald">skills</span>          - List networking, cloud, and programming capabilities
-  <span class="text-emerald">projects</span>        - Show key network topologies & IoT implementations
-  <span class="text-emerald">certifications</span>  - Display verified credentials (CCNA, Cisco, GCP)
-  <span class="text-emerald">cat resume.txt</span>  - Print plain-text resume summary
-  <span class="text-emerald">contact</span>         - Display phone, email, and social coordinates
-  <span class="text-emerald">clear</span>           - Clear screen buffer
-  <span class="text-emerald">date</span>            - Display current system UTC/IST time
+<span class="text-cyan">=================== Available Network & System Commands ===================</span>
+
+<span class="text-emerald">[Connectivity & ICMP Diagnostics]</span>
+  <span class="text-cyan">ping [target]</span>        - Ping host (e.g. <span class="text-emerald">ping 8.8.8.8</span>, <span class="text-emerald">ping 10.0.0.1</span>, <span class="text-emerald">ping 1.1.1.1</span>)
+  <span class="text-cyan">traceroute [host]</span>    - Trace network hops to destination (e.g. <span class="text-emerald">traceroute 8.8.8.8</span>)
+
+<span class="text-emerald">[IP Address & Layer 3 Diagnostics]</span>
+  <span class="text-cyan">ipconfig [/all]</span>      - Display IP address, subnet mask, default gateway & DNS (Windows)
+  <span class="text-cyan">ifconfig | ip addr</span>   - Display network interfaces, MTU, IPv4/IPv6 addresses (Linux)
+  <span class="text-cyan">show ip route</span>        - Display Cisco routing table (Connected, Static, OSPF, BGP)
+  <span class="text-cyan">show ip int brief</span>    - Display summary of all Cisco router/switch interfaces
+  <span class="text-cyan">nslookup [domain]</span>    - Query DNS name resolution (e.g. <span class="text-emerald">nslookup google.com</span>)
+  <span class="text-cyan">netstat</span>              - Display active sockets, listening ports (SSH, HTTP, SIP VoIP)
+
+<span class="text-emerald">[MAC Address & Layer 2 Diagnostics]</span>
+  <span class="text-cyan">getmac | mac</span>         - Display physical MAC addresses & hardware adapters
+  <span class="text-cyan">arp -a | arp</span>         - Display ARP table (IP-to-MAC resolution cache)
+  <span class="text-cyan">show mac</span>             - Display Cisco switch MAC address forwarding table
+  <span class="text-cyan">show vlan</span>            - Display configured VLANs & port assignments
+
+<span class="text-emerald">[Profile & Credentials]</span>
+  <span class="text-cyan">whoami</span>               - Engineer profile, education, and career specialization
+  <span class="text-cyan">skills</span>               - Networking protocols, cloud, and programming capabilities
+  <span class="text-cyan">projects</span>             - Detailed network topologies & IoT marine implementations
+  <span class="text-cyan">certifications</span>       - Verified credentials (CCNA, Cisco Packet Tracer, GCP Swag)
+  <span class="text-cyan">cat resume.txt</span>       - Print ATS-friendly plain-text resume summary
+  <span class="text-cyan">contact</span>              - Direct phone, email, GitHub, LinkedIn coordinates
+  <span class="text-cyan">clear</span>                - Clear terminal screen buffer
+  <span class="text-cyan">date</span>                 - Display current system UTC/IST time
         `);
         break;
 
       case 'whoami':
         appendOutput(`
-<span class="text-cyan">Name:</span> Karbasappa
-<span class="text-cyan">Education:</span> B.E. Computer Science (Networks) @ Presidency University, Bengaluru
-<span class="text-cyan">Specialization:</span> Network Engineering & Routing Protocols (OSPF/RIP/BGP), VoIP (Cisco CME)
+<span class="text-cyan">Name:</span>           Karbasappa
+<span class="text-cyan">Education:</span>      B.E. Computer Science (Networks) @ Presidency University, Bengaluru (Grad: 2027)
+<span class="text-cyan">Specialization:</span> Network Engineering & Routing Protocols (OSPF, RIP, BGP), VoIP (Cisco CME)
 <span class="text-cyan">Certifications:</span> CCNA 200-301 (Network Fundamentals), Cisco Packet Tracer Advanced
-<span class="text-cyan">Location:</span> Bengaluru, Karnataka, India
-<span class="text-cyan">Status:</span> Open for Network Engineering, Cloud & Software Internships / Roles
+<span class="text-cyan">Honors:</span>         Google Cloud 300+ Badges Awardee & Official Google Swag Kit Recipient
+<span class="text-cyan">Location:</span>       Bengaluru, Karnataka, India
+<span class="text-cyan">Status:</span>         Open for Network Engineering, Cloud & Infrastructure Roles / Internships
         `);
         break;
 
-      case 'ping':
-        const target = args[1] || 'karbasappa.gateway.net';
+      case 'ping': {
+        let rawTarget = args[1] || '8.8.8.8';
+        if (rawTarget === '-t' || rawTarget === '-c') rawTarget = args[2] || '8.8.8.8';
+        const targetClean = rawTarget.toLowerCase().trim();
+
+        let targetIP = targetClean;
+        let ttl = 64;
+        let baseLatency = 14.1;
+        let hostDesc = 'Target Host';
+
+        if (targetClean === '8.8.8.8' || targetClean === '8.8.4.4') {
+          targetIP = targetClean;
+          ttl = 117;
+          baseLatency = 13.8;
+          hostDesc = 'Google Public Anycast DNS (Global Tier-1 Backbone)';
+        } else if (targetClean === '1.1.1.1' || targetClean === '1.0.0.1') {
+          targetIP = targetClean;
+          ttl = 58;
+          baseLatency = 8.9;
+          hostDesc = 'Cloudflare Ultra-Low Latency Anycast DNS (Edge Node)';
+        } else if (targetClean === '10.0.0.1' || targetClean === 'gateway' || targetClean === 'router' || targetClean === '192.168.1.1') {
+          targetIP = (targetClean === 'gateway' || targetClean === 'router') ? '192.168.1.1' : targetClean;
+          ttl = 255;
+          baseLatency = 0.32;
+          hostDesc = 'Cisco Catalyst Core Gateway Switch (Local Subnet)';
+        } else if (targetClean === '127.0.0.1' || targetClean === 'localhost') {
+          targetIP = '127.0.0.1';
+          ttl = 64;
+          baseLatency = 0.034;
+          hostDesc = 'Localhost IPv4 Loopback Adapter (Kernel TCP/IP Stack)';
+        } else if (targetClean.includes('google')) {
+          targetIP = '142.250.190.46';
+          ttl = 116;
+          baseLatency = 14.5;
+          hostDesc = 'Google Cloud Edge Ingress (blr-in-f46.1e100.net)';
+        } else if (targetClean.includes('github') || targetClean.includes('karbasappa')) {
+          targetIP = '185.199.108.153';
+          ttl = 56;
+          baseLatency = 11.2;
+          hostDesc = 'GitHub Pages Fastly CDN Ingress';
+        } else if (targetClean.includes('cisco')) {
+          targetIP = '72.163.4.185';
+          ttl = 52;
+          baseLatency = 28.4;
+          hostDesc = 'Cisco Systems San Jose Network Gateway';
+        } else if (targetClean.startsWith('192.168.') || targetClean.startsWith('10.') || targetClean.startsWith('172.16.')) {
+          ttl = 64;
+          baseLatency = 0.45;
+          hostDesc = 'Private Intranet Host';
+        } else {
+          // General IP/Domain fallback
+          ttl = 54;
+          baseLatency = 16.2;
+          hostDesc = 'Remote Host Interface';
+        }
+
+        const l1 = (baseLatency + (Math.random() * 0.4 - 0.2)).toFixed(3);
+        const l2 = (baseLatency + (Math.random() * 0.4 - 0.2)).toFixed(3);
+        const l3 = (baseLatency + (Math.random() * 0.4 - 0.2)).toFixed(3);
+        const l4 = (baseLatency + (Math.random() * 0.4 - 0.2)).toFixed(3);
+        const minL = Math.min(l1, l2, l3, l4).toFixed(3);
+        const maxL = Math.max(l1, l2, l3, l4).toFixed(3);
+        const avgL = ((parseFloat(l1) + parseFloat(l2) + parseFloat(l3) + parseFloat(l4)) / 4).toFixed(3);
+
         appendOutput(`
-<span class="text-cyan">PING ${escapeHTML(target)} (10.10.4.1): 56 data bytes</span>
-64 bytes from 10.10.4.1: icmp_seq=1 ttl=64 time=0.412 ms
-64 bytes from 10.10.4.1: icmp_seq=2 ttl=64 time=0.385 ms
-64 bytes from 10.10.4.1: icmp_seq=3 ttl=64 time=0.392 ms
-64 bytes from 10.10.4.1: icmp_seq=4 ttl=64 time=0.401 ms
+<span class="text-cyan">PING ${escapeHTML(rawTarget)} (${escapeHTML(targetIP)}): 56 data bytes</span>
+64 bytes from ${escapeHTML(targetIP)}: icmp_seq=1 ttl=${ttl} time=${l1} ms
+64 bytes from ${escapeHTML(targetIP)}: icmp_seq=2 ttl=${ttl} time=${l2} ms
+64 bytes from ${escapeHTML(targetIP)}: icmp_seq=3 ttl=${ttl} time=${l3} ms
+64 bytes from ${escapeHTML(targetIP)}: icmp_seq=4 ttl=${ttl} time=${l4} ms
 
-<span class="text-emerald">--- ${escapeHTML(target)} ping statistics ---</span>
+<span class="text-emerald">--- ${escapeHTML(rawTarget)} ping statistics ---</span>
 4 packets transmitted, 4 received, <span class="text-emerald">0% packet loss</span>, time 3004ms
-rtt min/avg/max/mdev = 0.385/0.397/0.412/0.010 ms
+rtt min/avg/max/mdev = ${minL}/${avgL}/${maxL}/0.042 ms
+<span class="text-cyan">Status:</span> <span class="text-emerald">Destination reachable [${escapeHTML(hostDesc)}]</span>
         `);
         break;
+      }
 
-      case 'traceroute':
+      case 'ipconfig': {
+        const isAll = (args[1] && (args[1].toLowerCase() === '/all' || args[1].toLowerCase() === '-all'));
+        appendOutput(`
+<span class="text-cyan">Windows IP Configuration / Dual-Stack Interface Manager</span>
+${isAll ? `
+<span class="text-muted">Host Name . . . . . . . . . . . . : karbasappa-netlab
+Primary Dns Suffix  . . . . . . . : presidency.edu.in
+Node Type . . . . . . . . . . . . : Hybrid
+IP Routing Enabled. . . . . . . . : Yes (OSPF v2 enabled)
+WINS Proxy Enabled. . . . . . . . : No
+DNS Suffix Search List. . . . . . : presidency.edu.in, cisco.lan</span>
+` : ''}
+<span class="text-emerald">Ethernet adapter GigabitEthernet0/1 (Campus LAN Backbone):</span>
+   Connection-specific DNS Suffix  . : presidency.edu.in
+   ${isAll ? `Description . . . . . . . . . . . : Intel(R) I211 Gigabit Network Connection\n   Physical Address (MAC). . . . . . : <span class="text-amber">00-1A-2B-3C-4D-5E</span>\n   DHCP Enabled. . . . . . . . . . . : Yes` : ''}
+   IPv4 Address. . . . . . . . . . . : <span class="text-cyan">192.168.1.105</span>
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0 (/24)
+   Default Gateway . . . . . . . . . : <span class="text-cyan">192.168.1.1</span>
+   ${isAll ? `DNS Servers . . . . . . . . . . . : <span class="text-cyan">8.8.8.8, 1.1.1.1, 192.168.1.1</span>\n   NetBIOS over Tcpip. . . . . . . . : Enabled` : ''}
+
+<span class="text-emerald">Wireless LAN adapter Wi-Fi 6 (Campus High-Speed WLAN):</span>
+   Connection-specific DNS Suffix  . : wlan.campus.internal
+   ${isAll ? `Description . . . . . . . . . . . : Intel(R) Wi-Fi 6 AX201 160MHz\n   Physical Address (MAC). . . . . . : <span class="text-amber">48-2A-E3-89-12-F1</span>\n   DHCP Enabled. . . . . . . . . . . : Yes` : ''}
+   IPv4 Address. . . . . . . . . . . : <span class="text-cyan">10.10.24.88</span>
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0 (/20)
+   Default Gateway . . . . . . . . . : <span class="text-cyan">10.10.20.1</span>
+
+<span class="text-emerald">Ethernet adapter VLAN10-Voice (Cisco CME VoIP Dedicated Network):</span>
+   Connection-specific DNS Suffix  . : voice.cisco.lan
+   ${isAll ? `Description . . . . . . . . . . . : Cisco Virtual Voice Sub-interface 802.1Q\n   Physical Address (MAC). . . . . . : <span class="text-amber">00-1A-2B-3C-4D-5F</span>` : ''}
+   IPv4 Address. . . . . . . . . . . : <span class="text-cyan">172.16.10.15</span>
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0 (/24)
+   Default Gateway . . . . . . . . . : <span class="text-cyan">172.16.10.1</span>
+
+<span class="text-emerald">Tunnel adapter GCP-Cloud-VPC (Google Cloud Platform Interconnect):</span>
+   Connection-specific DNS Suffix  . : c.karbasappa-gcp.internal
+   IPv4 Address. . . . . . . . . . . : <span class="text-cyan">10.142.0.2</span>
+   Subnet Mask . . . . . . . . . . . : 255.255.255.252 (/30 Point-to-Point)
+   Default Gateway . . . . . . . . . : <span class="text-cyan">10.142.0.1</span>
+        `);
+        break;
+      }
+
+      case 'ifconfig':
+      case 'ip': {
+        appendOutput(`
+<span class="text-cyan">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet <span class="text-cyan">127.0.0.1/8</span> scope host lo
+    inet6 ::1/128 scope host
+    valid_lft forever preferred_lft forever
+
+<span class="text-cyan">2: eth0 (Gi0/1): &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 state UP</span>
+    link/ether <span class="text-amber">00:1a:2b:3c:4d:5e</span> brd ff:ff:ff:ff:ff:ff
+    inet <span class="text-cyan">192.168.1.105/24</span> brd 192.168.1.255 scope global dynamic eth0
+    inet6 fe80::21a:2bff:fe3c:4d5e/64 scope link
+    RX packets: 294,180  bytes: 312.4 MB (0 dropped, 0 errors)
+    TX packets: 184,209  bytes: 98.7 MB (0 dropped, 0 carrier)
+
+<span class="text-cyan">3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 state UP</span>
+    link/ether <span class="text-amber">48:2a:e3:89:12:f1</span> brd ff:ff:ff:ff:ff:ff
+    inet <span class="text-cyan">10.10.24.88/20</span> brd 10.10.31.255 scope global wlan0
+
+<span class="text-cyan">4: vlan10 (Voice CME): &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 state UP</span>
+    link/ether <span class="text-amber">00:1a:2b:3c:4d:5f</span> brd ff:ff:ff:ff:ff:ff
+    inet <span class="text-cyan">172.16.10.15/24</span> brd 172.16.10.255 scope global vlan10
+        `);
+        break;
+      }
+
+      case 'getmac':
+      case 'mac':
+      case 'mac-address':
+      case 'macaddress': {
+        appendOutput(`
+<span class="text-cyan">Physical Address (MAC) Adapter Information</span>
+<span class="text-muted">=================== ====================================================== ====================</span>
+<span class="text-emerald">Physical Address    Transport Name                                         Network Adapter</span>
+<span class="text-muted">=================== ====================================================== ====================</span>
+<span class="text-amber">00-1A-2B-3C-4D-5E</span>   \\Device\\Tcpip_{4F8B7A1C-1234-5678-ABCD-001A2B3C4D5E}   Gigabit Ethernet (Gi0/1)
+<span class="text-amber">48-2A-E3-89-12-F1</span>   \\Device\\Tcpip_{8E3D2C1B-5678-1234-EF01-482AE38912F1}   Intel Wi-Fi 6 AX201
+<span class="text-amber">00-1A-2B-3C-4D-5F</span>   \\Device\\Tcpip_{7D2F1A09-9012-3456-7890-001A2B3C4D5F}   VLAN 10 Voice CME Sub-int
+<span class="text-amber">02-42-AC-11-00-02</span>   \\Device\\Tcpip_{9C8B7A1E-9012-3456-7890-0242AC110002}   Docker Virtual Bridge
+<span class="text-amber">B8-27-EB-3D-9A-11</span>   \\Device\\Tcpip_{11223344-5566-7788-99AA-BBCCDDEEFF00}   Raspberry Pi Marine IoT
+<span class="text-muted">=================== ====================================================== ====================</span>
+<span class="text-cyan">Manufacturer OUI:</span>   Cisco / Intel / Raspberry Pi Foundation
+<span class="text-cyan">Hardware Status:</span>    All physical network interface cards (NICs) operational & Link Up
+        `);
+        break;
+      }
+
+      case 'show': {
+        appendOutput(`
+<span class="text-amber">% Incomplete command. Available Cisco IOS 'show' commands:</span>
+  <span class="text-emerald">show mac</span>               - Display MAC address forwarding table
+  <span class="text-emerald">show ip route</span>          - Display routing table (OSPF, RIP, BGP, Connected)
+  <span class="text-emerald">show ip int brief</span>      - Display interface IP configuration & status
+  <span class="text-emerald">show arp</span>               - Display Address Resolution Protocol cache
+  <span class="text-emerald">show vlan</span>              - Display VLAN membership and port allocation
+        `);
+        break;
+      }
+
+      case 'nslookup':
+      case 'dig': {
+        const queryHost = args[1] || 'karbasappasigi.github.io';
+        appendOutput(`
+<span class="text-cyan">Server:</span>    8.8.8.8 (Google Public DNS)
+<span class="text-cyan">Address:</span>   8.8.8.8#53
+
+<span class="text-emerald">Non-authoritative answer:</span>
+Name:      ${escapeHTML(queryHost)}
+Address:   185.199.108.153
+Address:   185.199.109.153
+Address:   185.199.110.153
+Address:   185.199.111.153
+Aliases:   ${escapeHTML(queryHost)} -> github.map.fastly.net
+TTL:       3600s (Query time: 14 ms)
+        `);
+        break;
+      }
+
+      case 'netstat': {
+        appendOutput(`
+<span class="text-cyan">Active Internet Connections (servers and established sockets)</span>
+<span class="text-muted">Proto Recv-Q Send-Q Local Address           Foreign Address         State</span>
+tcp        0      0 192.168.1.105:22        0.0.0.0:*               <span class="text-emerald">LISTEN (SSH Console)</span>
+tcp        0      0 192.168.1.105:80        0.0.0.0:*               <span class="text-emerald">LISTEN (HTTP Web Server)</span>
+tcp        0      0 192.168.1.105:5060      172.16.10.1:5060        <span class="text-cyan">ESTABLISHED (VoIP SIP CME)</span>
+tcp        0      0 192.168.1.105:443       142.250.190.46:443      <span class="text-cyan">ESTABLISHED (Google Cloud API)</span>
+tcp        0      0 192.168.1.105:443       185.199.108.153:443     <span class="text-cyan">ESTABLISHED (GitHub Pages CDN)</span>
+udp        0      0 192.168.1.105:161       0.0.0.0:*               <span class="text-amber">LISTEN (SNMP Management)</span>
+udp        0      0 192.168.1.105:123       0.0.0.0:*               <span class="text-amber">LISTEN (NTP Sync)</span>
+        `);
+        break;
+      }
+
+      case 'traceroute': {
         const traceTarget = args[1] || 'presidency.edu';
         appendOutput(`
 <span class="text-cyan">traceroute to ${escapeHTML(traceTarget)} (172.16.10.1), 30 hops max, 60 byte packets</span>
  1  gateway.blr.lan (192.168.1.1)               0.512 ms  0.420 ms
- 2  core-r1.presidency.net (10.0.0.1)           1.210 ms  1.104 ms  [OSPF Area 0]
+ 2  core-r1.presidency.net (10.0.0.1)           1.210 ms  1.104 ms  [OSPF Area 0 Backbone]
  3  edge-sw01.isp-gateway.in (103.24.12.1)      4.821 ms  4.512 ms
  4  host.destination (172.16.10.1)              5.109 ms  4.980 ms
 <span class="text-emerald">Trace complete. Zero packet jitter detected across all hops.</span>
         `);
         break;
+      }
 
       case 'skills':
         appendOutput(`
