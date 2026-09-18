@@ -1901,14 +1901,22 @@ a {
   box-shadow: 0 4px 14px rgba(0, 240, 255, 0.35);
 }
 
+.resume-section {
+  padding: 4rem 0 2rem 0;
+}
+
 .resume-sheet-wrapper {
   max-width: 860px;
   margin: 0 auto;
   background: #ffffff;
   color: #111827;
   border-radius: 8px;
-  padding: 3rem 3.5rem;
+  padding: 2.75rem 3rem 2rem 3rem;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.resume-sheet-wrapper .resume-sec:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
