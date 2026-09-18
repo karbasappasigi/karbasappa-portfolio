@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initModals();
   initContactForm();
+  initResumeViewSwitcher();
 });
 
 /* ===================================================================
@@ -1008,6 +1009,32 @@ function initModals() {
       }
       document.body.style.overflow = '';
     }
+  });
+}
+
+/* ===================================================================
+   Resume View Switcher (1-Page Document vs. Showcase Cards)
+   =================================================================== */
+function initResumeViewSwitcher() {
+  const tabDoc = document.getElementById('tab-doc-view');
+  const tabCards = document.getElementById('tab-cards-view');
+  const docContainer = document.getElementById('resume-doc-container');
+  const cardsContainer = document.getElementById('resume-cards-container');
+
+  if (!tabDoc || !tabCards || !docContainer || !cardsContainer) return;
+
+  tabDoc.addEventListener('click', () => {
+    tabDoc.classList.add('active');
+    tabCards.classList.remove('active');
+    docContainer.style.display = 'block';
+    cardsContainer.style.display = 'none';
+  });
+
+  tabCards.addEventListener('click', () => {
+    tabCards.classList.add('active');
+    tabDoc.classList.remove('active');
+    docContainer.style.display = 'none';
+    cardsContainer.style.display = 'grid';
   });
 }
 

@@ -1864,6 +1864,59 @@ a {
 
 .mt-1 { margin-top: 0.5rem; }
 
+/* Resume View Switcher & Document Sheet Wrapper */
+.resume-view-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.resume-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--trans-fast);
+}
+
+.resume-tab-btn:hover {
+  color: var(--text-main);
+  border-color: var(--accent-cyan);
+}
+
+.resume-tab-btn.active {
+  background: var(--gradient-primary);
+  color: #0b1120;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(0, 240, 255, 0.35);
+}
+
+.resume-sheet-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #111827;
+  border-radius: 8px;
+  padding: 3rem 3.5rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .resume-sheet-wrapper {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
 /* ===================================================================
    Toast Notifications
    =================================================================== */
