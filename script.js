@@ -797,7 +797,7 @@ udp        0      0 192.168.1.105:123       0.0.0.0:*               <span class=
 <span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">CCNA 200-301 (Network Fundamentals)</span> - Simplilearn SkillUp (Completed: August 20, 2026)
 <span class="text-amber">[AWARDEE]</span>  <span class="text-cyan">Google Cloud 300+ Badges & Official Google Swag</span> - Completed 300+ Badges & Awarded Official Google Swag Kit Directly by Google
 <span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">Cisco Packet Tracer Advanced</span> - Simulation & Design Expertise
-<span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">IBM Dev Day: Bob in Action</span> - Virtual Summit Participation (August 27-30, 2026)
+<span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">IBM Dev Day: Bob in Action</span> - Virtual Event + Hackathon (Future-Proofing Systems with Bob, August 27-30, 2026)
         `);
         break;
 
@@ -980,6 +980,20 @@ function initModals() {
       certified: 'KARBASAPPA',
       code: null,
       skills: 'Reconnaissance, Network Scanning, Wi-Fi Security, Web Vulnerabilities & Cybersecurity Career Pathways'
+    },
+    'ibm-devday': {
+      title: 'IBM Dev Day: Bob in Action – Virtual Event + Hackathon',
+      image: 'assets/certificate-ibm-devday-bob.png',
+      downloadUrl: 'assets/certificate-ibm-devday-bob.png',
+      downloadName: 'Karbasappa_IBM_Dev_Day_Bob_in_Action_Certificate.png',
+      pdfUrl: 'assets/certificate-ibm-devday-bob.pdf',
+      pdfName: 'Karbasappa_IBM_Dev_Day_Bob_in_Action_Certificate.pdf',
+      credential: 'Certificate of Participation (Verified)',
+      organizer: 'IBM Developer / Dev Day Bob in Action',
+      date: 'August 27 – August 30, 2026',
+      certified: 'Karbasappa',
+      code: null,
+      skills: 'Future-proofing critical systems on IBM i & IBM Z with Bob, Virtual Hackathon, Enterprise Dev Tooling & Architecture'
     }
   };
 
