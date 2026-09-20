@@ -793,6 +793,7 @@ udp        0      0 192.168.1.105:123       0.0.0.0:*               <span class=
       case 'certifications':
       case 'certs':
         appendOutput(`
+<span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">Ethical Hacking & Cybersecurity Workshop</span> - VaultofCodes | Led by Kartik Ahlawat (Completed: Sept 20, 2026)
 <span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">CCNA 200-301 (Network Fundamentals)</span> - Simplilearn SkillUp (Completed: August 20, 2026)
 <span class="text-amber">[AWARDEE]</span>  <span class="text-cyan">Google Cloud 300+ Badges & Official Google Swag</span> - Completed 300+ Badges & Awarded Official Google Swag Kit Directly by Google
 <span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">Cisco Packet Tracer Advanced</span> - Simulation & Design Expertise
@@ -810,6 +811,7 @@ Bengaluru, India | +91-8496051416 | sigisangamesh6@gmail.com
 * Bachelor of Engineering, CS (Networks) - Presidency University (Grad: 2027)
 * Pre-University (PUC I & II) - Diamond PU College (2021-2023)
 * CCNA 200-301 Certified & Cisco Packet Tracer Advanced Certified
+* Ethical Hacking & Cybersecurity Certified (VaultofCodes)
 * 300+ Google Cloud Badges & Official Google Swag Kit Awardee
 * Data Science Intern @ Pinnacle Labs
 * Key Projects: VoIP Implementation (20+ phones), Campus Multi-Building Network (500+ hosts), Marine IoT Telemetry
@@ -947,6 +949,25 @@ function initModals() {
   const resumeModal = document.getElementById('resume-modal');
   const openResumeBtn = document.getElementById('btn-open-resume');
   const resumeClose = document.getElementById('resume-modal-close');
+  const certModal = document.getElementById('cert-modal');
+  const certModalClose = document.getElementById('cert-modal-close');
+
+  // Certificate Modal handler
+  window.openCertModal = (certType) => {
+    if (certModal) {
+      certModal.classList.add('active');
+      certModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  if (certModalClose && certModal) {
+    certModalClose.addEventListener('click', () => {
+      certModal.classList.remove('active');
+      certModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    });
+  }
 
   // Resume Modal handler
   window.openResumeModal = () => {
@@ -995,6 +1016,11 @@ function initModals() {
       resumeModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
+    if (e.target === certModal) {
+      certModal.classList.remove('active');
+      certModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
   });
 
   window.addEventListener('keydown', (e) => {
@@ -1006,6 +1032,10 @@ function initModals() {
       if (resumeModal) {
         resumeModal.classList.remove('active');
         resumeModal.setAttribute('aria-hidden', 'true');
+      }
+      if (certModal) {
+        certModal.classList.remove('active');
+        certModal.setAttribute('aria-hidden', 'true');
       }
       document.body.style.overflow = '';
     }
