@@ -952,8 +952,82 @@ function initModals() {
   const certModal = document.getElementById('cert-modal');
   const certModalClose = document.getElementById('cert-modal-close');
 
-  // Certificate Modal handler
+  // Dynamic Certificate Modal data & handler
+  const certDetails = {
+    'ccna-simplilearn': {
+      title: 'CCNA 200-301 Network Fundamentals – Simplilearn SkillUp',
+      image: 'assets/certificate-simplilearn-ccna.png',
+      downloadUrl: 'assets/certificate-simplilearn-ccna.png',
+      downloadName: 'Karbasappa_CCNA_200-301_Simplilearn_Certificate.png',
+      pdfUrl: 'assets/certificate-simplilearn-ccna.pdf',
+      pdfName: 'Karbasappa_CCNA_200-301_Simplilearn.pdf',
+      credential: 'Certificate of Completion (Verified)',
+      organizer: 'Simplilearn SkillUp &bull; Endorsed by Krishna Kumar (CEO)',
+      date: '20th August 2026',
+      certified: 'KARBASAPPA',
+      code: '10628463',
+      skills: 'Network Fundamentals, IP Connectivity, Subnetting, Routing Protocols, Switching, Network Access, Security Fundamentals & Automation'
+    },
+    'ethical-hacking': {
+      title: 'Ethical Hacking & Cybersecurity Workshop – VaultofCodes',
+      image: 'assets/certificate-ethical-hacking.png',
+      downloadUrl: 'assets/certificate-ethical-hacking.png',
+      downloadName: 'Karbasappa_Ethical_Hacking_Cybersecurity_Certificate.png',
+      pdfUrl: null,
+      credential: 'Certificate of Participation (Verified)',
+      organizer: 'VaultofCodes &bull; Led by Kartik Ahlawat (Founder, CEO)',
+      date: '20 September 2026',
+      certified: 'KARBASAPPA',
+      code: null,
+      skills: 'Reconnaissance, Network Scanning, Wi-Fi Security, Web Vulnerabilities & Cybersecurity Career Pathways'
+    }
+  };
+
   window.openCertModal = (certType) => {
+    const data = certDetails[certType] || certDetails['ccna-simplilearn'];
+    const titleEl = document.getElementById('cert-modal-title');
+    const contentEl = document.getElementById('cert-modal-content');
+    const downloadBtn = document.querySelector('#cert-modal .modal-header-actions a');
+
+    if (titleEl) titleEl.textContent = data.title;
+    if (downloadBtn) {
+      downloadBtn.href = data.downloadUrl;
+      downloadBtn.download = data.downloadName;
+    }
+
+    if (contentEl) {
+      const codeHtml = data.code ? `
+        <div class="cert-meta-item">
+          <strong><i class="fa-solid fa-fingerprint text-cyan"></i> Certificate Code:</strong> ${data.code}
+        </div>` : '';
+
+      contentEl.innerHTML = `
+        <div class="cert-preview-card">
+          <div class="cert-img-wrapper">
+            <img src="${data.image}" alt="${data.title}" class="cert-preview-img">
+          </div>
+          <div class="cert-preview-meta">
+            <div class="cert-meta-item">
+              <strong><i class="fa-solid fa-award text-cyan"></i> Credential:</strong> ${data.credential}
+            </div>
+            <div class="cert-meta-item">
+              <strong><i class="fa-solid fa-building-shield text-cyan"></i> Issuer:</strong> ${data.organizer}
+            </div>
+            <div class="cert-meta-item">
+              <strong><i class="fa-regular fa-calendar-check text-cyan"></i> Date:</strong> ${data.date}
+            </div>
+            <div class="cert-meta-item">
+              <strong><i class="fa-solid fa-user-check text-emerald"></i> Recipient:</strong> ${data.certified}
+            </div>
+            ${codeHtml}
+            <div class="cert-meta-item cert-meta-full">
+              <strong><i class="fa-solid fa-shield-virus text-amber"></i> Skills &amp; Scope:</strong> ${data.skills}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     if (certModal) {
       certModal.classList.add('active');
       certModal.setAttribute('aria-hidden', 'false');
