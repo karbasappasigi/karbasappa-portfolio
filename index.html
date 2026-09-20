@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.6.0">
 </head>
 <body>
   <!-- Real-time Animated Network Canvas Background -->
@@ -1105,7 +1105,7 @@
                   </div>
                 </div>
 
-                <div class="resume-cert-mini">
+                <div class="resume-cert-mini" onclick="openCertModal('ccna-simplilearn')" style="cursor: pointer;" title="Click to view CCNA Certificate">
                   <div class="mini-cert-icon"><i class="fa-solid fa-network-wired text-cyan"></i></div>
                   <div class="mini-cert-info">
                     <h4>CCNA 200-301 (Network Fundamentals)</h4>
@@ -1123,7 +1123,7 @@
                   </div>
                 </div>
 
-                <div class="resume-cert-mini">
+                <div class="resume-cert-mini" onclick="openCertModal('ethical-hacking')" style="cursor: pointer;" title="Click to view Ethical Hacking Certificate">
                   <div class="mini-cert-icon"><i class="fa-solid fa-user-shield text-cyan"></i></div>
                   <div class="mini-cert-info">
                     <h4>Ethical Hacking &amp; Cybersecurity Workshop</h4>
@@ -1132,12 +1132,12 @@
                   </div>
                 </div>
 
-                <div class="resume-cert-mini">
+                <div class="resume-cert-mini" onclick="openCertModal('ibm-devday')" style="cursor: pointer;" title="Click to view IBM Dev Day Bob Certificate">
                   <div class="mini-cert-icon"><i class="fa-solid fa-code text-blue"></i></div>
                   <div class="mini-cert-info">
                     <h4>IBM Dev Day: Bob in Action</h4>
-                    <p class="mini-cert-issuer">Virtual Event Participation &bull; August 27–30, 2026</p>
-                    <p class="mini-cert-desc">Modern containerized workflows, microservices, and enterprise cloud tooling.</p>
+                    <p class="mini-cert-issuer">Virtual Event + Hackathon &bull; August 27–30, 2026</p>
+                    <p class="mini-cert-desc">Modern containerized workflows, microservices, and enterprise cloud tooling with Bob.</p>
                   </div>
                 </div>
               </div>
@@ -1418,8 +1418,11 @@
           <h3 id="cert-modal-title">Verified Certificate Preview</h3>
         </div>
         <div class="modal-header-actions">
-          <a href="assets/certificate-ethical-hacking.png" download="Karbasappa_Ethical_Hacking_Cybersecurity_Certificate.png" class="btn btn-sm btn-primary">
-            <i class="fa-solid fa-download"></i> Download Certificate
+          <a id="cert-modal-download-btn" href="#" download="Certificate.png" class="btn btn-sm btn-primary">
+            <i class="fa-solid fa-download"></i> Download Image
+          </a>
+          <a id="cert-modal-pdf-btn" href="#" download="Certificate.pdf" class="btn btn-sm btn-secondary" style="display: none;">
+            <i class="fa-solid fa-file-pdf"></i> Download PDF
           </a>
           <button class="modal-close-btn" id="cert-modal-close" aria-label="Close modal">
             <i class="fa-solid fa-xmark"></i>
@@ -1429,24 +1432,10 @@
       <div class="modal-body cert-modal-body" id="cert-modal-content">
         <div class="cert-preview-card">
           <div class="cert-img-wrapper">
-            <img src="assets/certificate-ethical-hacking.png" alt="Karbasappa - Ethical Hacking & Cybersecurity Workshop Certificate - VaultofCodes" class="cert-preview-img">
+            <img id="cert-modal-img" src="" alt="Verified Certificate" class="cert-preview-img">
           </div>
-          <div class="cert-preview-meta">
-            <div class="cert-meta-item">
-              <strong><i class="fa-solid fa-award text-cyan"></i> Credential:</strong> Certificate of Participation
-            </div>
-            <div class="cert-meta-item">
-              <strong><i class="fa-solid fa-building-shield text-cyan"></i> Organizer:</strong> VaultofCodes (Kartik Ahlawat, Founder &amp; CEO)
-            </div>
-            <div class="cert-meta-item">
-              <strong><i class="fa-regular fa-calendar-check text-cyan"></i> Date:</strong> 20 September 2026
-            </div>
-            <div class="cert-meta-item">
-              <strong><i class="fa-solid fa-user-check text-emerald"></i> Certified:</strong> KARBASAPPA
-            </div>
-            <div class="cert-meta-item cert-meta-full">
-              <strong><i class="fa-solid fa-shield-virus text-amber"></i> Skills &amp; Coverage:</strong> Reconnaissance, Network Scanning, Wi-Fi Security, Web Vulnerabilities &amp; Cybersecurity Career Pathways
-            </div>
+          <div class="cert-preview-meta" id="cert-modal-meta">
+            <!-- Injected dynamically based on active certificate -->
           </div>
         </div>
       </div>
@@ -1618,7 +1607,123 @@
     </div>
   </footer>
 
+  <!-- Certificate Modal Controller (Immediate Standalone Execution) -->
+  <script>
+    (function() {
+      const registry = {
+        'ibm-devday': {
+          title: 'IBM Dev Day: Bob in Action – Virtual Event + Hackathon',
+          image: 'assets/certificate-ibm-devday-bob.png',
+          downloadUrl: 'assets/certificate-ibm-devday-bob.png',
+          downloadName: 'Karbasappa_IBM_Dev_Day_Bob_in_Action_Certificate.png',
+          pdfUrl: 'assets/certificate-ibm-devday-bob.pdf',
+          pdfName: 'Karbasappa_IBM_Dev_Day_Bob_in_Action_Certificate.pdf',
+          credential: 'Certificate of Participation (Verified)',
+          organizer: 'IBM Developer &bull; Dev Day Bob in Action',
+          date: 'August 27 – August 30, 2026',
+          certified: 'Karbasappa',
+          code: null,
+          skills: 'Future-proofing critical systems on IBM i & IBM Z with Bob, Virtual Hackathon, Enterprise Dev Tooling & Architecture'
+        },
+        'ccna-simplilearn': {
+          title: 'CCNA 200-301 Network Fundamentals – Simplilearn SkillUp',
+          image: 'assets/certificate-simplilearn-ccna.png',
+          downloadUrl: 'assets/certificate-simplilearn-ccna.png',
+          downloadName: 'Karbasappa_CCNA_200-301_Simplilearn_Certificate.png',
+          pdfUrl: 'assets/certificate-simplilearn-ccna.pdf',
+          pdfName: 'Karbasappa_CCNA_200-301_Simplilearn.pdf',
+          credential: 'Certificate of Completion (Verified)',
+          organizer: 'Simplilearn SkillUp &bull; Endorsed by Krishna Kumar (CEO)',
+          date: '20th August 2026',
+          certified: 'KARBASAPPA',
+          code: '10628463',
+          skills: 'Network Fundamentals, IP Connectivity, Subnetting, Routing Protocols, Switching, Network Access, Security Fundamentals & Automation'
+        },
+        'ethical-hacking': {
+          title: 'Ethical Hacking & Cybersecurity Workshop – VaultofCodes',
+          image: 'assets/certificate-ethical-hacking.png',
+          downloadUrl: 'assets/certificate-ethical-hacking.png',
+          downloadName: 'Karbasappa_Ethical_Hacking_Cybersecurity_Certificate.png',
+          pdfUrl: null,
+          credential: 'Certificate of Participation (Verified)',
+          organizer: 'VaultofCodes &bull; Led by Kartik Ahlawat (Founder, CEO)',
+          date: '20 September 2026',
+          certified: 'KARBASAPPA',
+          code: null,
+          skills: 'Reconnaissance, Network Scanning, Wi-Fi Security, Web Vulnerabilities & Cybersecurity Career Pathways'
+        }
+      };
+
+      // Direct aliases
+      registry['ibm'] = registry['ibm-devday'];
+      registry['ibm-bob'] = registry['ibm-devday'];
+      registry['bob'] = registry['ibm-devday'];
+      registry['hackathon'] = registry['ibm-devday'];
+      registry['ccna'] = registry['ccna-simplilearn'];
+      registry['simplilearn'] = registry['ccna-simplilearn'];
+      registry['vaultofcodes'] = registry['ethical-hacking'];
+      registry['cybersecurity'] = registry['ethical-hacking'];
+
+      window.openCertModal = function(certType) {
+        const key = (certType || '').toLowerCase().trim();
+        const data = registry[key] || registry['ibm-devday'];
+        const modal = document.getElementById('cert-modal');
+        const titleEl = document.getElementById('cert-modal-title');
+        const imgEl = document.getElementById('cert-modal-img');
+        const metaEl = document.getElementById('cert-modal-meta');
+        const downloadBtn = document.getElementById('cert-modal-download-btn');
+        const pdfBtn = document.getElementById('cert-modal-pdf-btn');
+
+        if (titleEl) titleEl.textContent = data.title;
+        if (imgEl) {
+          imgEl.src = data.image;
+          imgEl.alt = data.title;
+        }
+        if (downloadBtn) {
+          downloadBtn.href = data.downloadUrl;
+          downloadBtn.download = data.downloadName;
+        }
+        if (pdfBtn) {
+          if (data.pdfUrl) {
+            pdfBtn.href = data.pdfUrl;
+            pdfBtn.download = data.pdfName || 'Certificate.pdf';
+            pdfBtn.style.display = 'inline-flex';
+          } else {
+            pdfBtn.style.display = 'none';
+          }
+        }
+        if (metaEl) {
+          const codeHtml = data.code ? '<div class="cert-meta-item"><strong><i class="fa-solid fa-fingerprint text-cyan"></i> Certificate Code:</strong> ' + data.code + '</div>' : '';
+          metaEl.innerHTML = `
+            <div class="cert-meta-item">
+              <strong><i class="fa-solid fa-award text-cyan"></i> Credential:</strong> ${data.credential}
+            </div>
+            <div class="cert-meta-item">
+              <strong><i class="fa-solid fa-building-shield text-cyan"></i> Issuer:</strong> ${data.organizer}
+            </div>
+            <div class="cert-meta-item">
+              <strong><i class="fa-regular fa-calendar-check text-cyan"></i> Date:</strong> ${data.date}
+            </div>
+            <div class="cert-meta-item">
+              <strong><i class="fa-solid fa-user-check text-emerald"></i> Recipient:</strong> ${data.certified}
+            </div>
+            ${codeHtml}
+            <div class="cert-meta-item cert-meta-full">
+              <strong><i class="fa-solid fa-shield-virus text-amber"></i> Skills &amp; Scope:</strong> ${data.skills}
+            </div>
+          `;
+        }
+
+        if (modal) {
+          modal.classList.add('active');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+    })();
+  </script>
+
   <!-- Scripts -->
-  <script src="script.js"></script>
+  <script src="script.js?v=2.6.0"></script>
 </body>
 </html>

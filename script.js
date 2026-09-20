@@ -989,7 +989,7 @@ function initModals() {
       pdfUrl: 'assets/certificate-ibm-devday-bob.pdf',
       pdfName: 'Karbasappa_IBM_Dev_Day_Bob_in_Action_Certificate.pdf',
       credential: 'Certificate of Participation (Verified)',
-      organizer: 'IBM Developer / Dev Day Bob in Action',
+      organizer: 'IBM Developer &bull; Dev Day Bob in Action',
       date: 'August 27 – August 30, 2026',
       certified: 'Karbasappa',
       code: null,
@@ -997,47 +997,67 @@ function initModals() {
     }
   };
 
+  // Aliases
+  certDetails['ibm'] = certDetails['ibm-devday'];
+  certDetails['ibm-bob'] = certDetails['ibm-devday'];
+  certDetails['bob'] = certDetails['ibm-devday'];
+  certDetails['hackathon'] = certDetails['ibm-devday'];
+  certDetails['ccna'] = certDetails['ccna-simplilearn'];
+  certDetails['simplilearn'] = certDetails['ccna-simplilearn'];
+  certDetails['vaultofcodes'] = certDetails['ethical-hacking'];
+  certDetails['cybersecurity'] = certDetails['ethical-hacking'];
+
   window.openCertModal = (certType) => {
-    const data = certDetails[certType] || certDetails['ccna-simplilearn'];
+    const key = (certType || '').toLowerCase().trim();
+    const data = certDetails[key] || certDetails['ibm-devday'];
     const titleEl = document.getElementById('cert-modal-title');
     const contentEl = document.getElementById('cert-modal-content');
-    const downloadBtn = document.querySelector('#cert-modal .modal-header-actions a');
+    const imgEl = document.getElementById('cert-modal-img');
+    const metaEl = document.getElementById('cert-modal-meta');
+    const downloadBtn = document.getElementById('cert-modal-download-btn') || document.querySelector('#cert-modal .modal-header-actions a');
+    const pdfBtn = document.getElementById('cert-modal-pdf-btn');
 
     if (titleEl) titleEl.textContent = data.title;
+    if (imgEl) {
+      imgEl.src = data.image;
+      imgEl.alt = data.title;
+    }
     if (downloadBtn) {
       downloadBtn.href = data.downloadUrl;
       downloadBtn.download = data.downloadName;
     }
+    if (pdfBtn) {
+      if (data.pdfUrl) {
+        pdfBtn.href = data.pdfUrl;
+        pdfBtn.download = data.pdfName || 'Certificate.pdf';
+        pdfBtn.style.display = 'inline-flex';
+      } else {
+        pdfBtn.style.display = 'none';
+      }
+    }
 
-    if (contentEl) {
+    if (metaEl) {
       const codeHtml = data.code ? `
         <div class="cert-meta-item">
           <strong><i class="fa-solid fa-fingerprint text-cyan"></i> Certificate Code:</strong> ${data.code}
         </div>` : '';
 
-      contentEl.innerHTML = `
-        <div class="cert-preview-card">
-          <div class="cert-img-wrapper">
-            <img src="${data.image}" alt="${data.title}" class="cert-preview-img">
-          </div>
-          <div class="cert-preview-meta">
-            <div class="cert-meta-item">
-              <strong><i class="fa-solid fa-award text-cyan"></i> Credential:</strong> ${data.credential}
-            </div>
-            <div class="cert-meta-item">
-              <strong><i class="fa-solid fa-building-shield text-cyan"></i> Issuer:</strong> ${data.organizer}
-            </div>
-            <div class="cert-meta-item">
-              <strong><i class="fa-regular fa-calendar-check text-cyan"></i> Date:</strong> ${data.date}
-            </div>
-            <div class="cert-meta-item">
-              <strong><i class="fa-solid fa-user-check text-emerald"></i> Recipient:</strong> ${data.certified}
-            </div>
-            ${codeHtml}
-            <div class="cert-meta-item cert-meta-full">
-              <strong><i class="fa-solid fa-shield-virus text-amber"></i> Skills &amp; Scope:</strong> ${data.skills}
-            </div>
-          </div>
+      metaEl.innerHTML = `
+        <div class="cert-meta-item">
+          <strong><i class="fa-solid fa-award text-cyan"></i> Credential:</strong> ${data.credential}
+        </div>
+        <div class="cert-meta-item">
+          <strong><i class="fa-solid fa-building-shield text-cyan"></i> Issuer:</strong> ${data.organizer}
+        </div>
+        <div class="cert-meta-item">
+          <strong><i class="fa-regular fa-calendar-check text-cyan"></i> Date:</strong> ${data.date}
+        </div>
+        <div class="cert-meta-item">
+          <strong><i class="fa-solid fa-user-check text-emerald"></i> Recipient:</strong> ${data.certified}
+        </div>
+        ${codeHtml}
+        <div class="cert-meta-item cert-meta-full">
+          <strong><i class="fa-solid fa-shield-virus text-amber"></i> Skills &amp; Scope:</strong> ${data.skills}
         </div>
       `;
     }
