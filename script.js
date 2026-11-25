@@ -793,6 +793,7 @@ udp        0      0 192.168.1.105:123       0.0.0.0:*               <span class=
       case 'certifications':
       case 'certs':
         appendOutput(`
+<span class="text-amber">[TOP 50/500]</span> <span class="text-cyan">PROJEXA 2026 – The Project Expo</span> - Certificate of Recognition | "A Quantum-Secure, End-to-End Encrypted Email Client" | Presidency University (Nov 14, 2026)
 <span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">Ethical Hacking & Cybersecurity Workshop</span> - VaultofCodes | Led by Kartik Ahlawat (Completed: Sept 20, 2026)
 <span class="text-emerald">[VERIFIED]</span> <span class="text-cyan">CCNA 200-301 (Network Fundamentals)</span> - Simplilearn SkillUp (Completed: August 20, 2026)
 <span class="text-amber">[AWARDEE]</span>  <span class="text-cyan">Google Cloud 300+ Badges & Official Google Swag</span> - Completed 300+ Badges & Awarded Official Google Swag Kit Directly by Google
@@ -810,6 +811,7 @@ Bengaluru, India | +91-8496051416 | sigisangamesh6@gmail.com
 ===========================================================
 * Bachelor of Engineering, CS (Networks) - Presidency University (Grad: 2027)
 * Pre-University (PUC I & II) - Diamond PU College (2021-2023)
+* PROJEXA 2026 Top 50 Projects (out of 500 teams) - Quantum-Secure E2EE Email Client
 * CCNA 200-301 Certified & Cisco Packet Tracer Advanced Certified
 * Ethical Hacking & Cybersecurity Certified (VaultofCodes)
 * 300+ Google Cloud Badges & Official Google Swag Kit Awardee
@@ -994,6 +996,20 @@ function initModals() {
       certified: 'Karbasappa',
       code: null,
       skills: 'Future-proofing critical systems on IBM i & IBM Z with Bob, Virtual Hackathon, Enterprise Dev Tooling & Architecture'
+    },
+    'projexa-2026': {
+      title: 'PROJEXA 2026 – The Project Expo (Top 50 Projects / 500 Teams)',
+      image: 'assets/certificate-projexa-2026.png',
+      downloadUrl: 'assets/certificate-projexa-2026.png',
+      downloadName: 'Karbasappa_PROJEXA_2026_Certificate.png',
+      pdfUrl: 'assets/certificate-projexa-2026.pdf',
+      pdfName: 'Karbasappa_PROJEXA_2026_Certificate.pdf',
+      credential: 'Certificate of Recognition – Top 50 Projects out of 500 Participating Teams',
+      organizer: 'Presidency School of Computer Science &amp; Engineering, Presidency University &bull; Endorsed by Dr. Duraipandian N. (Dean, PSCS)',
+      date: '14 November 2026',
+      certified: 'KARBASAPPA',
+      code: null,
+      skills: 'A Quantum-Secure, End-to-End Encrypted Email Client, Post-Quantum Cryptography, Secure Messaging &amp; Project Innovation'
     }
   };
 
@@ -1006,6 +1022,9 @@ function initModals() {
   certDetails['simplilearn'] = certDetails['ccna-simplilearn'];
   certDetails['vaultofcodes'] = certDetails['ethical-hacking'];
   certDetails['cybersecurity'] = certDetails['ethical-hacking'];
+  certDetails['projexa'] = certDetails['projexa-2026'];
+  certDetails['quantum-email'] = certDetails['projexa-2026'];
+  certDetails['project-expo'] = certDetails['projexa-2026'];
 
   window.openCertModal = (certType) => {
     const key = (certType || '').toLowerCase().trim();
